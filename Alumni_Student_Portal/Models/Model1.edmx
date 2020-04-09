@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Alumni_PortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ad_Post">
+          <Key>
+            <PropertyRef Name="Ad_id" />
+          </Key>
+          <Property Name="Ad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ad_image" Type="varchar(max)" Nullable="false" />
+          <Property Name="Ad_des" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pro_fk_Event_Category" Type="int" />
+          <Property Name="pro_fk_Alumni" Type="int" />
+        </EntityType>
+        <EntityType Name="Complain">
+          <Key>
+            <PropertyRef Name="ComplainID" />
+          </Key>
+          <Property Name="ComplainID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Discription" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Emain" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="pro_fk_Student" Type="int" />
+          <Property Name="pro_fk_Alumni" Type="int" />
+        </EntityType>
+        <EntityType Name="CV">
+          <Key>
+            <PropertyRef Name="Cid" />
+          </Key>
+          <Property Name="Cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fullname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cv" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="pro_fk_Student" Type="int" />
+          <Property Name="pro_fk_Alumni" Type="int" />
+        </EntityType>
+        <EntityType Name="going">
+          <Key>
+            <PropertyRef Name="go_id" />
+          </Key>
+          <Property Name="go_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="go_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="go_email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="go_contact" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="pro_fk_Student" Type="int" />
+          <Property Name="pro_fk_Alumni" Type="int" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="stu_id" />
+          </Key>
+          <Property Name="stu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stu_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="stu_rollnum" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="stu_password" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admin_username" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="admin_password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Alumni">
+          <Key>
+            <PropertyRef Name="Alumni_id" />
+          </Key>
+          <Property Name="Alumni_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Alumni_fullname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Alumni_Enrolmentnum" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Alumni_email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Alumni_cellnum" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Alumni_department" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Alumni_cmsid" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Event_Category">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cat_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cat_image" Type="varchar(max)" Nullable="false" />
+          <Property Name="cat_fk_admin" Type="int" />
+          <Property Name="cat_status" Type="int" />
+        </EntityType>
+        <Association Name="FK__Ad_Post__pro_fk___1B0907CE">
+          <End Role="tbl_Event_Category" Type="Self.tbl_Event_Category" Multiplicity="0..1" />
+          <End Role="Ad_Post" Type="Self.Ad_Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Event_Category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="Ad_Post">
+              <PropertyRef Name="pro_fk_Event_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ad_Post__pro_fk___1BFD2C07">
+          <End Role="tbl_Alumni" Type="Self.tbl_Alumni" Multiplicity="0..1" />
+          <End Role="Ad_Post" Type="Self.Ad_Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Alumni">
+              <PropertyRef Name="Alumni_id" />
+            </Principal>
+            <Dependent Role="Ad_Post">
+              <PropertyRef Name="pro_fk_Alumni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complain__pro_fk__29572725">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="Complain" Type="Self.Complain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="Complain">
+              <PropertyRef Name="pro_fk_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complain__pro_fk__2A4B4B5E">
+          <End Role="tbl_Alumni" Type="Self.tbl_Alumni" Multiplicity="0..1" />
+          <End Role="Complain" Type="Self.Complain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Alumni">
+              <PropertyRef Name="Alumni_id" />
+            </Principal>
+            <Dependent Role="Complain">
+              <PropertyRef Name="pro_fk_Alumni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CV__pro_fk_Alumn__267ABA7A">
+          <End Role="tbl_Alumni" Type="Self.tbl_Alumni" Multiplicity="0..1" />
+          <End Role="CV" Type="Self.CV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Alumni">
+              <PropertyRef Name="Alumni_id" />
+            </Principal>
+            <Dependent Role="CV">
+              <PropertyRef Name="pro_fk_Alumni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CV__pro_fk_Stude__25869641">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="CV" Type="Self.CV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="CV">
+              <PropertyRef Name="pro_fk_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__going__pro_fk_Al__22AA2996">
+          <End Role="tbl_Alumni" Type="Self.tbl_Alumni" Multiplicity="0..1" />
+          <End Role="going" Type="Self.going" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Alumni">
+              <PropertyRef Name="Alumni_id" />
+            </Principal>
+            <Dependent Role="going">
+              <PropertyRef Name="pro_fk_Alumni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__going__pro_fk_St__21B6055D">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="going" Type="Self.going" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="going">
+              <PropertyRef Name="pro_fk_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Event__cat_f__145C0A3F">
+          <End Role="tbl_Admin" Type="Self.tbl_Admin" Multiplicity="0..1" />
+          <End Role="tbl_Event_Category" Type="Self.tbl_Event_Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="tbl_Event_Category">
+              <PropertyRef Name="cat_fk_admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Alumni_PortalModelStoreContainer">
+          <EntitySet Name="Ad_Post" EntityType="Self.Ad_Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Complain" EntityType="Self.Complain" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CV" EntityType="Self.CV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="going" EntityType="Self.going" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Alumni" EntityType="Self.tbl_Alumni" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Event_Category" EntityType="Self.tbl_Event_Category" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Ad_Post__pro_fk___1B0907CE" Association="Self.FK__Ad_Post__pro_fk___1B0907CE">
+            <End Role="tbl_Event_Category" EntitySet="tbl_Event_Category" />
+            <End Role="Ad_Post" EntitySet="Ad_Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ad_Post__pro_fk___1BFD2C07" Association="Self.FK__Ad_Post__pro_fk___1BFD2C07">
+            <End Role="tbl_Alumni" EntitySet="tbl_Alumni" />
+            <End Role="Ad_Post" EntitySet="Ad_Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complain__pro_fk__29572725" Association="Self.FK__Complain__pro_fk__29572725">
+            <End Role="student" EntitySet="student" />
+            <End Role="Complain" EntitySet="Complain" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complain__pro_fk__2A4B4B5E" Association="Self.FK__Complain__pro_fk__2A4B4B5E">
+            <End Role="tbl_Alumni" EntitySet="tbl_Alumni" />
+            <End Role="Complain" EntitySet="Complain" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CV__pro_fk_Alumn__267ABA7A" Association="Self.FK__CV__pro_fk_Alumn__267ABA7A">
+            <End Role="tbl_Alumni" EntitySet="tbl_Alumni" />
+            <End Role="CV" EntitySet="CV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CV__pro_fk_Stude__25869641" Association="Self.FK__CV__pro_fk_Stude__25869641">
+            <End Role="student" EntitySet="student" />
+            <End Role="CV" EntitySet="CV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__going__pro_fk_Al__22AA2996" Association="Self.FK__going__pro_fk_Al__22AA2996">
+            <End Role="tbl_Alumni" EntitySet="tbl_Alumni" />
+            <End Role="going" EntitySet="going" />
+          </AssociationSet>
+          <AssociationSet Name="FK__going__pro_fk_St__21B6055D" Association="Self.FK__going__pro_fk_St__21B6055D">
+            <End Role="student" EntitySet="student" />
+            <End Role="going" EntitySet="going" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Event__cat_f__145C0A3F" Association="Self.FK__tbl_Event__cat_f__145C0A3F">
+            <End Role="tbl_Admin" EntitySet="tbl_Admin" />
+            <End Role="tbl_Event_Category" EntitySet="tbl_Event_Category" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Alumni_PortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ad_Post">
+          <Key>
+            <PropertyRef Name="Ad_id" />
+          </Key>
+          <Property Name="Ad_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ad_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ad_des" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pro_fk_Event_Category" Type="Int32" />
+          <Property Name="pro_fk_Alumni" Type="Int32" />
+          <NavigationProperty Name="tbl_Event_Category" Relationship="Self.FK__Ad_Post__pro_fk___1B0907CE" FromRole="Ad_Post" ToRole="tbl_Event_Category" />
+          <NavigationProperty Name="tbl_Alumni" Relationship="Self.FK__Ad_Post__pro_fk___1BFD2C07" FromRole="Ad_Post" ToRole="tbl_Alumni" />
+        </EntityType>
+        <EntityType Name="Complain">
+          <Key>
+            <PropertyRef Name="ComplainID" />
+          </Key>
+          <Property Name="ComplainID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Discription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Emain" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pro_fk_Student" Type="Int32" />
+          <Property Name="pro_fk_Alumni" Type="Int32" />
+          <NavigationProperty Name="student" Relationship="Self.FK__Complain__pro_fk__29572725" FromRole="Complain" ToRole="student" />
+          <NavigationProperty Name="tbl_Alumni" Relationship="Self.FK__Complain__pro_fk__2A4B4B5E" FromRole="Complain" ToRole="tbl_Alumni" />
+        </EntityType>
+        <EntityType Name="CV">
+          <Key>
+            <PropertyRef Name="Cid" />
+          </Key>
+          <Property Name="Cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cv1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pro_fk_Student" Type="Int32" />
+          <Property Name="pro_fk_Alumni" Type="Int32" />
+          <NavigationProperty Name="tbl_Alumni" Relationship="Self.FK__CV__pro_fk_Alumn__267ABA7A" FromRole="CV" ToRole="tbl_Alumni" />
+          <NavigationProperty Name="student" Relationship="Self.FK__CV__pro_fk_Stude__25869641" FromRole="CV" ToRole="student" />
+        </EntityType>
+        <EntityType Name="going">
+          <Key>
+            <PropertyRef Name="go_id" />
+          </Key>
+          <Property Name="go_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="go_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="go_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="go_contact" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pro_fk_Student" Type="Int32" />
+          <Property Name="pro_fk_Alumni" Type="Int32" />
+          <NavigationProperty Name="tbl_Alumni" Relationship="Self.FK__going__pro_fk_Al__22AA2996" FromRole="going" ToRole="tbl_Alumni" />
+          <NavigationProperty Name="student" Relationship="Self.FK__going__pro_fk_St__21B6055D" FromRole="going" ToRole="student" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="stu_id" />
+          </Key>
+          <Property Name="stu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stu_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stu_rollnum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stu_password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Complains" Relationship="Self.FK__Complain__pro_fk__29572725" FromRole="student" ToRole="Complain" />
+          <NavigationProperty Name="CVs" Relationship="Self.FK__CV__pro_fk_Stude__25869641" FromRole="student" ToRole="CV" />
+          <NavigationProperty Name="goings" Relationship="Self.FK__going__pro_fk_St__21B6055D" FromRole="student" ToRole="going" />
+        </EntityType>
+        <EntityType Name="tbl_Admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="admin_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tbl_Event_Category" Relationship="Self.FK__tbl_Event__cat_f__145C0A3F" FromRole="tbl_Admin" ToRole="tbl_Event_Category" />
+        </EntityType>
+        <EntityType Name="tbl_Alumni">
+          <Key>
+            <PropertyRef Name="Alumni_id" />
+          </Key>
+          <Property Name="Alumni_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Alumni_fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Alumni_Enrolmentnum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Alumni_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Alumni_cellnum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Alumni_department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Alumni_cmsid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ad_Post" Relationship="Self.FK__Ad_Post__pro_fk___1BFD2C07" FromRole="tbl_Alumni" ToRole="Ad_Post" />
+          <NavigationProperty Name="Complains" Relationship="Self.FK__Complain__pro_fk__2A4B4B5E" FromRole="tbl_Alumni" ToRole="Complain" />
+          <NavigationProperty Name="CVs" Relationship="Self.FK__CV__pro_fk_Alumn__267ABA7A" FromRole="tbl_Alumni" ToRole="CV" />
+          <NavigationProperty Name="goings" Relationship="Self.FK__going__pro_fk_Al__22AA2996" FromRole="tbl_Alumni" ToRole="going" />
+        </EntityType>
+        <EntityType Name="tbl_Event_Category">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cat_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cat_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cat_fk_admin" Type="Int32" />
+          <NavigationProperty Name="Ad_Post" Relationship="Self.FK__Ad_Post__pro_fk___1B0907CE" FromRole="tbl_Event_Category" ToRole="Ad_Post" />
+          <NavigationProperty Name="tbl_Admin" Relationship="Self.FK__tbl_Event__cat_f__145C0A3F" FromRole="tbl_Event_Category" ToRole="tbl_Admin" />
+          <Property Name="cat_status" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__Ad_Post__pro_fk___1B0907CE">
+          <End Role="tbl_Event_Category" Type="Self.tbl_Event_Category" Multiplicity="0..1" />
+          <End Role="Ad_Post" Type="Self.Ad_Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Event_Category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="Ad_Post">
+              <PropertyRef Name="pro_fk_Event_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ad_Post__pro_fk___1BFD2C07">
+          <End Role="tbl_Alumni" Type="Self.tbl_Alumni" Multiplicity="0..1" />
+          <End Role="Ad_Post" Type="Self.Ad_Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Alumni">
+              <PropertyRef Name="Alumni_id" />
+            </Principal>
+            <Dependent Role="Ad_Post">
+              <PropertyRef Name="pro_fk_Alumni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complain__pro_fk__29572725">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="Complain" Type="Self.Complain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="Complain">
+              <PropertyRef Name="pro_fk_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complain__pro_fk__2A4B4B5E">
+          <End Role="tbl_Alumni" Type="Self.tbl_Alumni" Multiplicity="0..1" />
+          <End Role="Complain" Type="Self.Complain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Alumni">
+              <PropertyRef Name="Alumni_id" />
+            </Principal>
+            <Dependent Role="Complain">
+              <PropertyRef Name="pro_fk_Alumni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CV__pro_fk_Alumn__267ABA7A">
+          <End Role="tbl_Alumni" Type="Self.tbl_Alumni" Multiplicity="0..1" />
+          <End Role="CV" Type="Self.CV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Alumni">
+              <PropertyRef Name="Alumni_id" />
+            </Principal>
+            <Dependent Role="CV">
+              <PropertyRef Name="pro_fk_Alumni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CV__pro_fk_Stude__25869641">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="CV" Type="Self.CV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="CV">
+              <PropertyRef Name="pro_fk_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__going__pro_fk_Al__22AA2996">
+          <End Role="tbl_Alumni" Type="Self.tbl_Alumni" Multiplicity="0..1" />
+          <End Role="going" Type="Self.going" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Alumni">
+              <PropertyRef Name="Alumni_id" />
+            </Principal>
+            <Dependent Role="going">
+              <PropertyRef Name="pro_fk_Alumni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__going__pro_fk_St__21B6055D">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="going" Type="Self.going" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="stu_id" />
+            </Principal>
+            <Dependent Role="going">
+              <PropertyRef Name="pro_fk_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Event__cat_f__145C0A3F">
+          <End Role="tbl_Admin" Type="Self.tbl_Admin" Multiplicity="0..1" />
+          <End Role="tbl_Event_Category" Type="Self.tbl_Event_Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="tbl_Event_Category">
+              <PropertyRef Name="cat_fk_admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Alumni_PortalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ad_Post" EntityType="Self.Ad_Post" />
+          <EntitySet Name="Complains" EntityType="Self.Complain" />
+          <EntitySet Name="CVs" EntityType="Self.CV" />
+          <EntitySet Name="goings" EntityType="Self.going" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" />
+          <EntitySet Name="tbl_Alumni" EntityType="Self.tbl_Alumni" />
+          <EntitySet Name="tbl_Event_Category" EntityType="Self.tbl_Event_Category" />
+          <AssociationSet Name="FK__Ad_Post__pro_fk___1B0907CE" Association="Self.FK__Ad_Post__pro_fk___1B0907CE">
+            <End Role="tbl_Event_Category" EntitySet="tbl_Event_Category" />
+            <End Role="Ad_Post" EntitySet="Ad_Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ad_Post__pro_fk___1BFD2C07" Association="Self.FK__Ad_Post__pro_fk___1BFD2C07">
+            <End Role="tbl_Alumni" EntitySet="tbl_Alumni" />
+            <End Role="Ad_Post" EntitySet="Ad_Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complain__pro_fk__29572725" Association="Self.FK__Complain__pro_fk__29572725">
+            <End Role="student" EntitySet="students" />
+            <End Role="Complain" EntitySet="Complains" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complain__pro_fk__2A4B4B5E" Association="Self.FK__Complain__pro_fk__2A4B4B5E">
+            <End Role="tbl_Alumni" EntitySet="tbl_Alumni" />
+            <End Role="Complain" EntitySet="Complains" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CV__pro_fk_Alumn__267ABA7A" Association="Self.FK__CV__pro_fk_Alumn__267ABA7A">
+            <End Role="tbl_Alumni" EntitySet="tbl_Alumni" />
+            <End Role="CV" EntitySet="CVs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CV__pro_fk_Stude__25869641" Association="Self.FK__CV__pro_fk_Stude__25869641">
+            <End Role="student" EntitySet="students" />
+            <End Role="CV" EntitySet="CVs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__going__pro_fk_Al__22AA2996" Association="Self.FK__going__pro_fk_Al__22AA2996">
+            <End Role="tbl_Alumni" EntitySet="tbl_Alumni" />
+            <End Role="going" EntitySet="goings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__going__pro_fk_St__21B6055D" Association="Self.FK__going__pro_fk_St__21B6055D">
+            <End Role="student" EntitySet="students" />
+            <End Role="going" EntitySet="goings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Event__cat_f__145C0A3F" Association="Self.FK__tbl_Event__cat_f__145C0A3F">
+            <End Role="tbl_Admin" EntitySet="tbl_Admin" />
+            <End Role="tbl_Event_Category" EntitySet="tbl_Event_Category" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Alumni_PortalModelStoreContainer" CdmEntityContainer="Alumni_PortalEntities">
+          <EntitySetMapping Name="Ad_Post">
+            <EntityTypeMapping TypeName="Alumni_PortalModel.Ad_Post">
+              <MappingFragment StoreEntitySet="Ad_Post">
+                <ScalarProperty Name="Ad_id" ColumnName="Ad_id" />
+                <ScalarProperty Name="Ad_name" ColumnName="Ad_name" />
+                <ScalarProperty Name="Ad_image" ColumnName="Ad_image" />
+                <ScalarProperty Name="Ad_des" ColumnName="Ad_des" />
+                <ScalarProperty Name="pro_fk_Event_Category" ColumnName="pro_fk_Event_Category" />
+                <ScalarProperty Name="pro_fk_Alumni" ColumnName="pro_fk_Alumni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Complains">
+            <EntityTypeMapping TypeName="Alumni_PortalModel.Complain">
+              <MappingFragment StoreEntitySet="Complain">
+                <ScalarProperty Name="ComplainID" ColumnName="ComplainID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
+                <ScalarProperty Name="Emain" ColumnName="Emain" />
+                <ScalarProperty Name="pro_fk_Student" ColumnName="pro_fk_Student" />
+                <ScalarProperty Name="pro_fk_Alumni" ColumnName="pro_fk_Alumni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CVs">
+            <EntityTypeMapping TypeName="Alumni_PortalModel.CV">
+              <MappingFragment StoreEntitySet="CV">
+                <ScalarProperty Name="Cid" ColumnName="Cid" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="cv1" ColumnName="cv" />
+                <ScalarProperty Name="pro_fk_Student" ColumnName="pro_fk_Student" />
+                <ScalarProperty Name="pro_fk_Alumni" ColumnName="pro_fk_Alumni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="goings">
+            <EntityTypeMapping TypeName="Alumni_PortalModel.going">
+              <MappingFragment StoreEntitySet="going">
+                <ScalarProperty Name="go_id" ColumnName="go_id" />
+                <ScalarProperty Name="go_name" ColumnName="go_name" />
+                <ScalarProperty Name="go_email" ColumnName="go_email" />
+                <ScalarProperty Name="go_contact" ColumnName="go_contact" />
+                <ScalarProperty Name="pro_fk_Student" ColumnName="pro_fk_Student" />
+                <ScalarProperty Name="pro_fk_Alumni" ColumnName="pro_fk_Alumni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="Alumni_PortalModel.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="stu_id" ColumnName="stu_id" />
+                <ScalarProperty Name="stu_name" ColumnName="stu_name" />
+                <ScalarProperty Name="stu_rollnum" ColumnName="stu_rollnum" />
+                <ScalarProperty Name="stu_password" ColumnName="stu_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Admin">
+            <EntityTypeMapping TypeName="Alumni_PortalModel.tbl_Admin">
+              <MappingFragment StoreEntitySet="tbl_Admin">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="admin_username" ColumnName="admin_username" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Alumni">
+            <EntityTypeMapping TypeName="Alumni_PortalModel.tbl_Alumni">
+              <MappingFragment StoreEntitySet="tbl_Alumni">
+                <ScalarProperty Name="Alumni_id" ColumnName="Alumni_id" />
+                <ScalarProperty Name="Alumni_fullname" ColumnName="Alumni_fullname" />
+                <ScalarProperty Name="Alumni_Enrolmentnum" ColumnName="Alumni_Enrolmentnum" />
+                <ScalarProperty Name="Alumni_email" ColumnName="Alumni_email" />
+                <ScalarProperty Name="Alumni_cellnum" ColumnName="Alumni_cellnum" />
+                <ScalarProperty Name="Alumni_department" ColumnName="Alumni_department" />
+                <ScalarProperty Name="Alumni_cmsid" ColumnName="Alumni_cmsid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Event_Category">
+            <EntityTypeMapping TypeName="Alumni_PortalModel.tbl_Event_Category">
+              <MappingFragment StoreEntitySet="tbl_Event_Category">
+                <ScalarProperty Name="cat_status" ColumnName="cat_status" />
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+                <ScalarProperty Name="cat_Name" ColumnName="cat_Name" />
+                <ScalarProperty Name="cat_image" ColumnName="cat_image" />
+                <ScalarProperty Name="cat_fk_admin" ColumnName="cat_fk_admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

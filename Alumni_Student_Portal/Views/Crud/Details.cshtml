@@ -1,0 +1,66 @@
+﻿@model Alumni_Student_Portal.Models.tbl_Alumni
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_Alumni</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Alumni_fullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alumni_fullname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alumni_Enrolmentnum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alumni_Enrolmentnum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alumni_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alumni_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alumni_cellnum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alumni_cellnum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alumni_department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alumni_department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alumni_cmsid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alumni_cmsid)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Alumni_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

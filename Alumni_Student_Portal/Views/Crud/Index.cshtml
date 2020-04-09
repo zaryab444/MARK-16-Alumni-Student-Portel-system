@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Alumni_Student_Portal.Models.tbl_Alumni>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Alumni_fullname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alumni_Enrolmentnum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alumni_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alumni_cellnum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alumni_department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alumni_cmsid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alumni_fullname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alumni_Enrolmentnum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alumni_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alumni_cellnum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alumni_department)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alumni_cmsid)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Alumni_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Alumni_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Alumni_id })
+        </td>
+    </tr>
+}
+
+</table>

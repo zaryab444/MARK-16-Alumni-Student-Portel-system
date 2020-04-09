@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Alumni_PortalModelStoreContainer" CdmEntityContainer="Alumni_PortalEntities">
+    <EntitySetMapping Name="Ad_Post">
+      <EntityTypeMapping TypeName="Alumni_PortalModel.Ad_Post">
+        <MappingFragment StoreEntitySet="Ad_Post">
+          <ScalarProperty Name="Ad_id" ColumnName="Ad_id" />
+          <ScalarProperty Name="Ad_name" ColumnName="Ad_name" />
+          <ScalarProperty Name="Ad_image" ColumnName="Ad_image" />
+          <ScalarProperty Name="Ad_des" ColumnName="Ad_des" />
+          <ScalarProperty Name="pro_fk_Event_Category" ColumnName="pro_fk_Event_Category" />
+          <ScalarProperty Name="pro_fk_Alumni" ColumnName="pro_fk_Alumni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Complains">
+      <EntityTypeMapping TypeName="Alumni_PortalModel.Complain">
+        <MappingFragment StoreEntitySet="Complain">
+          <ScalarProperty Name="ComplainID" ColumnName="ComplainID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Discription" ColumnName="Discription" />
+          <ScalarProperty Name="Emain" ColumnName="Emain" />
+          <ScalarProperty Name="pro_fk_Student" ColumnName="pro_fk_Student" />
+          <ScalarProperty Name="pro_fk_Alumni" ColumnName="pro_fk_Alumni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CVs">
+      <EntityTypeMapping TypeName="Alumni_PortalModel.CV">
+        <MappingFragment StoreEntitySet="CV">
+          <ScalarProperty Name="Cid" ColumnName="Cid" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="cv1" ColumnName="cv" />
+          <ScalarProperty Name="pro_fk_Student" ColumnName="pro_fk_Student" />
+          <ScalarProperty Name="pro_fk_Alumni" ColumnName="pro_fk_Alumni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="goings">
+      <EntityTypeMapping TypeName="Alumni_PortalModel.going">
+        <MappingFragment StoreEntitySet="going">
+          <ScalarProperty Name="go_id" ColumnName="go_id" />
+          <ScalarProperty Name="go_name" ColumnName="go_name" />
+          <ScalarProperty Name="go_email" ColumnName="go_email" />
+          <ScalarProperty Name="go_contact" ColumnName="go_contact" />
+          <ScalarProperty Name="pro_fk_Student" ColumnName="pro_fk_Student" />
+          <ScalarProperty Name="pro_fk_Alumni" ColumnName="pro_fk_Alumni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="Alumni_PortalModel.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="stu_id" ColumnName="stu_id" />
+          <ScalarProperty Name="stu_name" ColumnName="stu_name" />
+          <ScalarProperty Name="stu_rollnum" ColumnName="stu_rollnum" />
+          <ScalarProperty Name="stu_password" ColumnName="stu_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Admin">
+      <EntityTypeMapping TypeName="Alumni_PortalModel.tbl_Admin">
+        <MappingFragment StoreEntitySet="tbl_Admin">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="admin_username" ColumnName="admin_username" />
+          <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Alumni">
+      <EntityTypeMapping TypeName="Alumni_PortalModel.tbl_Alumni">
+        <MappingFragment StoreEntitySet="tbl_Alumni">
+          <ScalarProperty Name="Alumni_id" ColumnName="Alumni_id" />
+          <ScalarProperty Name="Alumni_fullname" ColumnName="Alumni_fullname" />
+          <ScalarProperty Name="Alumni_Enrolmentnum" ColumnName="Alumni_Enrolmentnum" />
+          <ScalarProperty Name="Alumni_email" ColumnName="Alumni_email" />
+          <ScalarProperty Name="Alumni_cellnum" ColumnName="Alumni_cellnum" />
+          <ScalarProperty Name="Alumni_department" ColumnName="Alumni_department" />
+          <ScalarProperty Name="Alumni_cmsid" ColumnName="Alumni_cmsid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Event_Category">
+      <EntityTypeMapping TypeName="Alumni_PortalModel.tbl_Event_Category">
+        <MappingFragment StoreEntitySet="tbl_Event_Category">
+          <ScalarProperty Name="cat_status" ColumnName="cat_status" />
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="cat_Name" ColumnName="cat_Name" />
+          <ScalarProperty Name="cat_image" ColumnName="cat_image" />
+          <ScalarProperty Name="cat_fk_admin" ColumnName="cat_fk_admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
