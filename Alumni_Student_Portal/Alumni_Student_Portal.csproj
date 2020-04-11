@@ -401,6 +401,7 @@
     <Content Include="Views\Alumni\Registration.cshtml" />
     <Content Include="Views\Alumni\login.cshtml" />
     <Content Include="Views\Alumni\CreateAd.cshtml" />
+    <Content Include="Views\Alumni\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
