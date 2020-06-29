@@ -1,0 +1,57 @@
+﻿@model Alumni_Student_Portal.Models.CV
+
+@{
+    ViewBag.Title = "SubmitCV";
+}
+
+<h2>SubmitCV</h2>
+
+@using (Html.BeginForm("SubmitCV", "Alumni", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    @* This AntiForgeryTokey is used for prevent CSRF Attack*@
+    <fieldset>
+        <legend>Carrer</legend>
+        @if (ViewBag.Message != null)
+        {
+            <span style="color:green">
+                @ViewBag.Message
+            </span>
+        }
+      
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fullname)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fullname)
+            @Html.ValidationMessageFor(model => model.fullname)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            Select CV
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" />
+            @Html.ValidationMessage("CustomError")
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

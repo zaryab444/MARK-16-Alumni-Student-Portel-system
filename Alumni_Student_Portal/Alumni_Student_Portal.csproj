@@ -169,6 +169,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Common\Password.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlumniController.cs" />
@@ -405,10 +406,12 @@
     <Content Include="Views\Alumni\Index.cshtml" />
     <Content Include="Views\Alumni\Ads.cshtml" />
     <Content Include="Views\Alumni\ViewAd.cshtml" />
+    <Content Include="Views\Alumni\SubmitCV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\upload\" />
+    <Folder Include="uploadcv\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
