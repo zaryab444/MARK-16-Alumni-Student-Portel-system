@@ -1,0 +1,77 @@
+﻿@model Alumni_Student_Portal.Models.tbl_Alumni
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>tbl_Alumni</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Alumni_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Alumni_fullname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Alumni_fullname)
+                @Html.ValidationMessageFor(model => model.Alumni_fullname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Alumni_Enrolmentnum, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Alumni_Enrolmentnum)
+                @Html.ValidationMessageFor(model => model.Alumni_Enrolmentnum)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Alumni_email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Alumni_email)
+                @Html.ValidationMessageFor(model => model.Alumni_email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Alumni_cellnum, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Alumni_cellnum)
+                @Html.ValidationMessageFor(model => model.Alumni_cellnum)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Alumni_department, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Alumni_department)
+                @Html.ValidationMessageFor(model => model.Alumni_department)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Alumni_cmsid, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Alumni_cmsid)
+                @Html.ValidationMessageFor(model => model.Alumni_cmsid)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

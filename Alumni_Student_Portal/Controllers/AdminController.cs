@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using System.Net;
+using System.Data.Entity;
 
 namespace Alumni_Student_Portal.Controllers
 {
@@ -165,6 +166,92 @@ namespace Alumni_Student_Portal.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult list()
+        {
+            return View(db.tbl_Alumni.ToList());
+        }
 
+        // GET: /Crud/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            tbl_Alumni tbl_alumni = db.tbl_Alumni.Find(id);
+            if (tbl_alumni == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tbl_alumni);
+        }
+
+     
+
+        // GET: /Crud/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            tbl_Alumni tbl_alumni = db.tbl_Alumni.Find(id);
+            if (tbl_alumni == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tbl_alumni);
+        }
+
+        // POST: /Crud/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Alumni_id,Alumni_fullname,Alumni_Enrolmentnum,Alumni_email,Alumni_cellnum,Alumni_department,Alumni_cmsid")] tbl_Alumni tbl_alumni)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(tbl_alumni).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("list");
+            }
+            return View(tbl_alumni);
+        }
+
+
+        public ActionResult Deleted(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            tbl_Alumni tbl_alumni = db.tbl_Alumni.Find(id);
+            if (tbl_alumni == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tbl_alumni);
+        }
+
+        // POST: /Crud/Delete/5
+        [HttpPost, ActionName("Deleted")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletedConfirmed(int id)
+        {
+            tbl_Alumni tbl_alumni = db.tbl_Alumni.Find(id);
+            db.tbl_Alumni.Remove(tbl_alumni);
+            db.SaveChanges();
+            return RedirectToAction("list");
+        }
+
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 	}
 }

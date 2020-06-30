@@ -46,6 +46,7 @@
 
                 }
             }
+            @Html.ActionLink("GO to list", "list")
 
 
 
@@ -67,6 +68,7 @@
             of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("ViewCategory", new { page }))
         </div>
     </div>
+ 
 </body>
 </html>
 

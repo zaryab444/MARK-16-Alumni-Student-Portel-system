@@ -8,7 +8,7 @@
 
 <div>
     <h4>tbl_Alumni</h4>
-	<hr />
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Alumni_fullname)
@@ -61,6 +61,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Update", "Edit", new { id = Model.Alumni_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Alumni_id }) |
+    @Html.ActionLink("Back to List", "list")
 </p>
