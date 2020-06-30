@@ -16,6 +16,10 @@ namespace Alumni_Student_Portal.Controllers
         //
         // GET: /Alumni/
         Alumni_PortalEntities db = new Alumni_PortalEntities();
+        public ActionResult Home()
+        {
+            return View();
+        }
         public ActionResult Index(int? page)
         {
             int pagesize = 9, pageindex = 1;
