@@ -14,24 +14,55 @@
 </head>
 
     <body> 
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <!--start of navigation-->
+        <nav class="navbar navbar-expand-sm  navbar-dark fixed-top " style="background-color:#557A95">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <!-- Brand/logo -->
-            <a class="navbar-brand" href="#">Logo</a>
+            <a class="navbar-brand" href="#">Alumni Portal</a>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <!-- Links -->
+                <ul class="navbar-nav ml-sm-5 ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Registration">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Index">Query Procedure</a>
+                    </li>
 
-            <!-- Links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 3</a>
-                </li>
-            </ul>
-        </nav>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ContactUs">Contact Us</a>
+                    </li>
 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+                        <div class="dropdown-menu"style="background-color: #557A95">
+                            <a class="dropdown-item" href="Index">UpComing Events</a>
+                            <a class="dropdown-item" href="CreateAd">Ad Posting</a>
+                            <a class="dropdown-item" href="SubmitCV">Submit CV</a>
+                        </div>
+                    </li>
+
+                </ul>
+            
+                </div>
+
+</nav> <!-- End of navigation-->
+        
+        <!--For space break in under navigation ---> 
+        @*<div class="container body-content">
+            <br />
+        </div>*@ 
 
 
             @RenderBody()
@@ -45,6 +76,10 @@
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/bootstrap")
             @RenderSection("scripts", required: false)
+        <script>
+    
 
+    </script>
+        
 </body>
 </html>

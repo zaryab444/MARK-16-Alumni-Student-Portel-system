@@ -27,7 +27,11 @@
     <title>View  Category</title>
     <link href="~/Content/paginition.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+
 </head>
 <body>
     <div style="height:1150px; ">
@@ -90,6 +94,11 @@
             of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
         </div>
     </div>
+
+
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
 </body>
 </html>
 
