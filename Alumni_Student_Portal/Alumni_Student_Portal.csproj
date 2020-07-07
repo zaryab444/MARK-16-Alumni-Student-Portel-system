@@ -245,6 +245,7 @@
     <Content Include="Content\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="Content\images\bg-01.jpg" />
     <Content Include="Content\images\icons\favicon.ico" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
