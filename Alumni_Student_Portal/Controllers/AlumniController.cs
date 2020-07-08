@@ -277,8 +277,11 @@ namespace Alumni_Student_Portal.Controllers
 
             return path;
         }
-   
-        // GET: /Crud/
+
+        public ActionResult About()
+        {
+            return View();
+        }
         
     }
 }

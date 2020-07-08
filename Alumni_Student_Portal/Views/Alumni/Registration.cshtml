@@ -4,18 +4,11 @@
     ViewBag.Title = "Registration";
 }
 
-<h2>Registration</h2>
-<style>
-    #box {
-        border: 1px solid black;
-        height: 100%;
-    }
 
-    #main-div {
-        height: 900px;
-        background-image: url('../../Content/img/building6.jpg');
-        background-size: 100% 900px;
-    }
+<style>
+   
+
+    
 
     .insidebox {
         border: 1px solid black;
@@ -46,116 +39,117 @@
 
 <script src="js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery.js"></script>
-<div id="main-div">
-    <div id="box" class="img-responsive">
-        @using (Html.BeginForm("Registration",
+<body style="background-image:url('../Content/images/abstract-art-artistic-background-1103970.jpg')">
+    <div id="main-div">
+        <div id="box" class="img-responsive">
+            @using (Html.BeginForm("Registration",
                         "Alumni",
                         FormMethod.Post))
-        {
-            <div class="insidebox">
-                <div> <h1>User SignUp</h1></div>
+{
+    <div class="insidebox" style="background-color:lightgray">
+        <div> <h1>User SignUp</h1></div>
 
 
 
 
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                        @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                        @Html.TextBoxFor(x => x.Alumni_fullname, new { @class = "form-control", @placeholder = "fullname" })
-
-                    </div>
-                    <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_fullname) </span>
-
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                        @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                        @Html.TextBoxFor(x => x.Alumni_email, new { @class = "form-control", @placeholder = "Email" })
-
-                    </div>
-                    <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_email) </span>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                        @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                        @Html.TextBoxFor(x => x.Alumni_Enrolmentnum, new { @class = "form-control", @placeholder = "Enrolment num" })
-
-                    </div>
-                    <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_Enrolmentnum) </span>
-
-                </div>
-           
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                        @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                        @Html.TextBoxFor(x => x.Alumni_cellnum, new { @class = "form-control", @placeholder = "Phone" })
-
-                    </div>
-                    <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_cellnum) </span>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                        @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                        @Html.TextBoxFor(x => x.Alumni_department, new { @class = "form-control", @placeholder = "Department" })
-
-                    </div>
-                    <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_department) </span>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                        @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                        @Html.TextBoxFor(x => x.Alumni_cmsid, new { @class = "form-control", @placeholder = "CMSID" })
-
-                    </div>
-                    <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_cmsid) </span>
-
-                </div>
-                @*<div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-
-                        <input type="file" name="imgfile" id="imgfile" class="form-control" required="required" />
-
-
-
-                    </div>
-
-
-                </div>*@
-
-
-
-                <div class="form-group">
-
-                    <input type="submit" value="Add" class="btn btn-success btn-block" />
-
-                </div>
-
-                <div class="form-group">
-                    <p style="color:red">@ViewBag.error</p>
-                </div>
-
-
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                @Html.TextBoxFor(x => x.Alumni_fullname, new { @class = "form-control", @placeholder = "fullname" })
 
             </div>
+            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_fullname) </span>
 
-        }
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                @Html.TextBoxFor(x => x.Alumni_email, new { @class = "form-control", @placeholder = "Email" })
+
+            </div>
+            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_email) </span>
+
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                @Html.TextBoxFor(x => x.Alumni_Enrolmentnum, new { @class = "form-control", @placeholder = "Enrolment num" })
+
+            </div>
+            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_Enrolmentnum) </span>
+
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                @Html.TextBoxFor(x => x.Alumni_cellnum, new { @class = "form-control", @placeholder = "Phone" })
+
+            </div>
+            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_cellnum) </span>
+
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                @Html.TextBoxFor(x => x.Alumni_department, new { @class = "form-control", @placeholder = "Department" })
+
+            </div>
+            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_department) </span>
+
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                @Html.TextBoxFor(x => x.Alumni_cmsid, new { @class = "form-control", @placeholder = "CMSID" })
+
+            </div>
+            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_cmsid) </span>
+
+        </div>
+        @*<div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+
+                    <input type="file" name="imgfile" id="imgfile" class="form-control" required="required" />
+
+
+
+                </div>
+
+
+            </div>*@
+
+
+
+        <div class="form-group">
+
+            <input type="submit" value="Add" class="btn btn-success btn-block" />
+
+        </div>
+
+        <div class="form-group">
+            <p style="color:red">@ViewBag.error</p>
+        </div>
+
+
+
     </div>
 
-</div>
+}
+        </div>
 
+    </div>
+</body>
 
 <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
 <script src="~/Scripts/jquery.validate.js"></script>
