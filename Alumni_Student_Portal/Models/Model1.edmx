@@ -22,10 +22,11 @@
           </Key>
           <Property Name="ComplainID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Discription" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Discription" Type="varchar(max)" />
           <Property Name="Emain" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="pro_fk_Student" Type="int" />
           <Property Name="pro_fk_Alumni" Type="int" />
+          <Property Name="com" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="CV">
           <Key>
@@ -265,12 +266,13 @@
           </Key>
           <Property Name="ComplainID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Discription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Emain" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="pro_fk_Student" Type="Int32" />
           <Property Name="pro_fk_Alumni" Type="Int32" />
           <NavigationProperty Name="student" Relationship="Self.FK__Complain__pro_fk__29572725" FromRole="Complain" ToRole="student" />
           <NavigationProperty Name="tbl_Alumni" Relationship="Self.FK__Complain__pro_fk__2A4B4B5E" FromRole="Complain" ToRole="tbl_Alumni" />
+          <Property Name="com" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CV">
           <Key>
@@ -522,6 +524,7 @@
           <EntitySetMapping Name="Complains">
             <EntityTypeMapping TypeName="Alumni_PortalModel.Complain">
               <MappingFragment StoreEntitySet="Complain">
+                <ScalarProperty Name="com" ColumnName="com" />
                 <ScalarProperty Name="ComplainID" ColumnName="ComplainID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Discription" ColumnName="Discription" />

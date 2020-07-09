@@ -16,6 +16,7 @@
     <EntitySetMapping Name="Complains">
       <EntityTypeMapping TypeName="Alumni_PortalModel.Complain">
         <MappingFragment StoreEntitySet="Complain">
+          <ScalarProperty Name="com" ColumnName="com" />
           <ScalarProperty Name="ComplainID" ColumnName="ComplainID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Discription" ColumnName="Discription" />

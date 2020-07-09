@@ -17,10 +17,11 @@
     </Key>
     <Property Name="ComplainID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Discription" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Discription" Type="varchar(max)" />
     <Property Name="Emain" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="pro_fk_Student" Type="int" />
     <Property Name="pro_fk_Alumni" Type="int" />
+    <Property Name="com" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="CV">
     <Key>

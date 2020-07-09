@@ -20,6 +20,7 @@ namespace Alumni_Student_Portal.Models
         public string Emain { get; set; }
         public Nullable<int> pro_fk_Student { get; set; }
         public Nullable<int> pro_fk_Alumni { get; set; }
+        public string com { get; set; }
     
         public virtual student student { get; set; }
         public virtual tbl_Alumni tbl_Alumni { get; set; }

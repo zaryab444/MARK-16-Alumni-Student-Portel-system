@@ -570,9 +570,11 @@
     <Content Include="Scripts\umd\popper.js.flow" />
     <Content Include="Views\Alumni\Home.cshtml" />
     <Content Include="Views\Alumni\About.cshtml" />
+    <Content Include="Views\Alumni\Query.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Complain file\" />
     <Folder Include="Content\upload\" />
     <Folder Include="uploadcv\" />
   </ItemGroup>

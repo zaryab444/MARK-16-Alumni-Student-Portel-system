@@ -282,6 +282,98 @@ namespace Alumni_Student_Portal.Controllers
         {
             return View();
         }
-        
+
+        public ActionResult Query()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Query(Complain C, HttpPostedFileBase file)
+        {
+            string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);//com   
+            C.com = (Path.Combine(Server.MapPath("~/Complain file"), fileName));//com
+            string path = uploadfile(file);
+            if (path.Equals("-1"))
+            {
+                ViewBag.error = "file could not be uploaded....";
+            }
+            else
+            {
+
+                Complain u = new Complain();
+                u.ComplainID = C.ComplainID;
+                u.Name = C.Name;
+                u.Emain = C.Emain;
+                u.pro_fk_Alumni = u.pro_fk_Alumni;
+                u.com = path;
+
+                db.Complains.Add(u);//com
+                //db.SaveChanges();//com
+                string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                C.com = (Path.Combine(Server.MapPath("~/Complain file"), filename));
+                C.com = Path.Combine(Server.MapPath("~/Complain file"), filename);
+
+                using (Alumni_PortalEntities dc = new Alumni_PortalEntities())
+                {
+                    C.com = filename;
+                    dc.Complains.Add(C);
+                    dc.SaveChanges(); //com
+
+
+
+
+
+
+
+                }//
+
+            }
+            return View();
+        }
+
+
+        public string files(HttpPostedFileBase file)
+        {
+            Random r = new Random();
+            string path = "-1";
+            int random = r.Next();
+            if (file != null && file.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(file.FileName);
+                if (extension.ToLower().Equals(".pdf") || extension.ToLower().Equals(".docs"))
+                {
+                    try
+                    {
+
+                        path = Path.Combine(Server.MapPath("~/Query"), random + Path.GetFileName(file.FileName));
+                        file.SaveAs(path);
+                        path = "~/Query" + random + Path.GetFileName(file.FileName);
+
+                        ViewBag.Message = "File uploaded successfully";
+                    }
+                    catch (Exception ex)
+                    {
+                        path = "-1";
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Only pdf formats are acceptable....'); </script>");
+                }
+            }
+
+            else
+            {
+                Response.Write("<script>alert('Please select a file'); </script>");
+                path = "-1";
+            }
+
+
+
+            return path;
+        }
+
     }
 }
