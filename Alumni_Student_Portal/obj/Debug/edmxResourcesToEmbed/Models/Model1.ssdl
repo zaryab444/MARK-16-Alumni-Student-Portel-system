@@ -7,7 +7,7 @@
     <Property Name="Ad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ad_name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Ad_image" Type="varchar(max)" Nullable="false" />
-    <Property Name="Ad_des" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ad_des" Type="varchar(max)" />
     <Property Name="pro_fk_Event_Category" Type="int" />
     <Property Name="pro_fk_Alumni" Type="int" />
   </EntityType>

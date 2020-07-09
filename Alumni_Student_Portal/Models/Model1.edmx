@@ -12,7 +12,7 @@
           <Property Name="Ad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ad_name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Ad_image" Type="varchar(max)" Nullable="false" />
-          <Property Name="Ad_des" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ad_des" Type="varchar(max)" />
           <Property Name="pro_fk_Event_Category" Type="int" />
           <Property Name="pro_fk_Alumni" Type="int" />
         </EntityType>
@@ -253,7 +253,7 @@
           <Property Name="Ad_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ad_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ad_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Ad_des" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ad_des" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="pro_fk_Event_Category" Type="Int32" />
           <Property Name="pro_fk_Alumni" Type="Int32" />
           <NavigationProperty Name="tbl_Event_Category" Relationship="Self.FK__Ad_Post__pro_fk___1B0907CE" FromRole="Ad_Post" ToRole="tbl_Event_Category" />

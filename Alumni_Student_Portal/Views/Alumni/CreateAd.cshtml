@@ -4,19 +4,9 @@
     ViewBag.Title = "Ad_Post";
 }
 
-<h2>Ad_Post</h2>
 
 <style>
-    #box {
-        border: 1px solid black;
-        height: 100%;
-    }
-
-    #main-div {
-        height: 900px;
-        background-image: url('../../Content/img/building6.jpg');
-        background-size: 100% 900px;
-    }
+   
 
     .insidebox {
         border: 1px solid black;
@@ -39,148 +29,95 @@
     }
 </style>
 
-
-<link href="~/Content/bootstrap.css" rel="stylesheet" />
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
-
-
-
-<script src="js/bootstrap.min.js"></script>
-<script src="http://code.jquery.com/jquery.js"></script>
-<div id="main-div">
-    <div id="box" class="img-responsive">
-        @using (Html.BeginForm("CreateAd",
+<body style="background-image:url('../Content/images/abstract-art-artistic-background-1103970.jpg')">
+    <div id="main-div">
+        <div id="box" class="img-responsive">
+            @using (Html.BeginForm("CreateAd",
                         "Alumni",
                         FormMethod.Post,
                         new { enctype = "multipart/form-data" }))
-        {
-            <div class="insidebox">
-                <div> <h1>Post An Ad</h1></div>
+{
+    <div class="insidebox" style="background-color:lightgray">
+        <div> <h1>Post An Ad</h1></div>
 
 
 
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                        @Html.DropDownListFor(x => x.pro_fk_Event_Category, ViewBag.categorylist as SelectList, "--select--", new { @class = "form-control" })
-                    </div>
-                    <span style="color:red">   @Html.ValidationMessageFor(x => x.pro_fk_Event_Category) </span>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                @Html.DropDownListFor(x => x.pro_fk_Event_Category, ViewBag.categorylist as SelectList, "--select--", new { @class = "form-control" })
+            </div>
+            <span style="color:red">   @Html.ValidationMessageFor(x => x.pro_fk_Event_Category) </span>
 
-                </div>
-
-
-
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                        @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                        @Html.TextBoxFor(x => x.Ad_name, new { @class = "form-control", @placeholder = "AD Name" })
-
-                    </div>
-                    <span style="color:red">   @Html.ValidationMessageFor(x => x.Ad_name) </span>
-
-                </div>
+        </div>
 
 
 
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                        @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                        @Html.TextBoxFor(x => x.Ad_des, new { @class = "form-control", @placeholder = "Description" })
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                @Html.TextBoxFor(x => x.Ad_name, new { @class = "form-control", @placeholder = "AD Name" })
 
-                    </div>
-                    <span style="color:red">   @Html.ValidationMessageFor(x => x.Ad_des) </span>
+            </div>
+            <span style="color:red">   @Html.ValidationMessageFor(x => x.Ad_name) </span>
 
-                </div>
-
-
-
-
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-
-                        <input type="file" name="imgfile" id="imgfile" class="form-control" required="required" />
+        </div>
 
 
 
-                    </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                @Html.TextBoxFor(x => x.Ad_des, new { @class = "form-control", @placeholder = "Description" })
+
+            </div>
+            <span style="color:red">   @Html.ValidationMessageFor(x => x.Ad_des) </span>
+
+        </div>
 
 
-                </div>
 
 
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
 
-                <div class="form-group">
-
-                    <input type="submit" value="Add" class="btn btn-success btn-block" />
-
-                </div>
-
-                <div class="form-group">
-                    <p style="color:red">@ViewBag.error</p>
-                </div>
+                <input type="file" name="imgfile" id="imgfile" class="form-control" required="required" />
 
 
 
             </div>
 
-        }
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <input type="submit" value="Add" class="btn btn-success btn-block" />
+
+        </div>
+
+        <div class="form-group">
+            <p style="color:red">@ViewBag.error</p>
+        </div>
+
+
+
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-4 offset-1 col-sm-2">
-                    <h5>Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="./aboutus.html">About</a></li>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-7 col-sm-5">
-                    <h5>Our Address</h5>
-                    <address>
-                        <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
-                        <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
-                        <i class="fa fa-envelope fa-lg"></i>:
-                        <a href="mailto:confusion@food.net">confusion@food.net</a>
-                    </address>
-                </div>
-                <div class="col-12 col-sm-4 align-self-center">
-                    <div class="text-center">
-                        <div class="text-center">
-                            <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
-                            <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
-                            <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
-                            <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
-                            <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
-                            <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-auto">
-                    <p>© Copyright 2018 Ristorante Con Fusion</p>
-                </div>
-            </div>
+}
         </div>
-    </footer>
-
-</div>
 
 
-<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
-<script src="~/Scripts/jquery.validate.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    </div>
+
+</body>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
