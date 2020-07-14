@@ -2,7 +2,9 @@
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -32,6 +34,8 @@ namespace Alumni_Student_Portal.Controllers
 
         public ActionResult Registration()
         {
+            
+
             return View();
         }
         [HttpPost]
@@ -49,7 +53,8 @@ namespace Alumni_Student_Portal.Controllers
             db.SaveChanges();
             return RedirectToAction("Login");
 
-
+           
+            
 
             //   return View();
         }
@@ -121,6 +126,14 @@ namespace Alumni_Student_Portal.Controllers
         [HttpGet]
         public ActionResult CreateAd()
         {
+
+            
+            
+            if (Session["u_id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            
             List<tbl_Event_Category> li = db.tbl_Event_Category.ToList();
             ViewBag.categorylist = new SelectList(li, "cat_id", "cat_name");
 
@@ -259,12 +272,16 @@ namespace Alumni_Student_Portal.Controllers
                     catch (Exception ex)
                     {
                         path = "-1";
+                        ViewBag.Message = "Not work";
                     }
                 }
                 else
                 {
                     Response.Write("<script>alert('Only pdf formats are acceptable....'); </script>");
                 }
+
+            
+            
             }
 
             else
@@ -272,6 +289,7 @@ namespace Alumni_Student_Portal.Controllers
                 Response.Write("<script>alert('Please select a file'); </script>");
                 path = "-1";
             }
+          
 
 
 
@@ -289,7 +307,7 @@ namespace Alumni_Student_Portal.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+     //   [ValidateAntiForgeryToken]
         public ActionResult Query(Complain C, HttpPostedFileBase file)
         {
             string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);//com   
@@ -360,8 +378,14 @@ namespace Alumni_Student_Portal.Controllers
                 }
                 else
                 {
+
                     Response.Write("<script>alert('Only pdf formats are acceptable....'); </script>");
+
+
+
                 }
+
+
             }
 
             else

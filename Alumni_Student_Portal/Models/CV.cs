@@ -11,12 +11,18 @@ namespace Alumni_Student_Portal.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class CV
     {
         public int Cid { get; set; }
+        [Required(ErrorMessage = "Please enter your first name!")]
         public string fullname { get; set; }
+
+        [Required(ErrorMessage = "Please enter your first name!")]
         public string Email { get; set; }
+       
         public string cv1 { get; set; }
         public Nullable<int> pro_fk_Student { get; set; }
         public Nullable<int> pro_fk_Alumni { get; set; }

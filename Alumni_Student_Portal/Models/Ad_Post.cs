@@ -11,12 +11,18 @@ namespace Alumni_Student_Portal.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Ad_Post
     {
         public int Ad_id { get; set; }
+        [Required]
+        [Display(Name = "Ad_name")]
         public string Ad_name { get; set; }
+     
         public string Ad_image { get; set; }
+        [Required]
+        [Display(Name = "Ad_des")]
         public string Ad_des { get; set; }
         public Nullable<int> pro_fk_Event_Category { get; set; }
         public Nullable<int> pro_fk_Alumni { get; set; }
