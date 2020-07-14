@@ -365,9 +365,9 @@ namespace Alumni_Student_Portal.Controllers
                     try
                     {
 
-                        path = Path.Combine(Server.MapPath("~/Query"), random + Path.GetFileName(file.FileName));
+                        path = Path.Combine(Server.MapPath("~/Complain file"), random + Path.GetFileName(file.FileName));
                         file.SaveAs(path);
-                        path = "~/Query" + random + Path.GetFileName(file.FileName);
+                        path = "~/Conplain file" + random + Path.GetFileName(file.FileName);
 
                         ViewBag.Message = "File uploaded successfully";
                     }

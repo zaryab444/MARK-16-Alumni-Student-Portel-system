@@ -16,13 +16,13 @@ namespace Alumni_Student_Portal.Models
     public partial class Ad_Post
     {
         public int Ad_id { get; set; }
-        [Required]
-        [Display(Name = "Ad_name")]
+        [Required(ErrorMessage = "Enter user name")]
+        [Display(Name = "Enter Username :")]
         public string Ad_name { get; set; }
      
         public string Ad_image { get; set; }
-        [Required]
-        [Display(Name = "Ad_des")]
+        [Required(ErrorMessage = "Enter user name")]
+        [Display(Name = "Enter Username :")]
         public string Ad_des { get; set; }
         public Nullable<int> pro_fk_Event_Category { get; set; }
         public Nullable<int> pro_fk_Alumni { get; set; }
