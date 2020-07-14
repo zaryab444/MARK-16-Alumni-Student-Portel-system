@@ -574,7 +574,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Complain file\" />
+    <Folder Include="Complain\" />
     <Folder Include="Content\upload\" />
     <Folder Include="uploadcv\" />
   </ItemGroup>

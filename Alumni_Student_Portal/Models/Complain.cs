@@ -18,7 +18,7 @@ namespace Alumni_Student_Portal.Models
 
         [Required(ErrorMessage = "Enter user name")]
         [Display(Name = "Enter Username :")]
-        [StringLength(maximumLength: 7, MinimumLength = 3, ErrorMessage = "Username length must be Max 7 & Min 3")]
+        [StringLength(maximumLength: 20, MinimumLength = 10, ErrorMessage = "Username length must be Max 7 & Min 3")]
         public string Name { get; set; }
 
           [Required(ErrorMessage = "Please Enter the Discription")]

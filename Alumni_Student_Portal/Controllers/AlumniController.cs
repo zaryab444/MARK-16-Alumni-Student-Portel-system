@@ -230,8 +230,8 @@ namespace Alumni_Student_Portal.Controllers
                 db.CVs.Add(u);//com
                 //db.SaveChanges();//com
                 string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                C.cv1 = (Path.Combine(Server.MapPath("~/Uploadcv"), filename));
-                C.cv1 = Path.Combine(Server.MapPath("~/Uploadcv"), filename);
+                C.cv1 = (Path.Combine(Server.MapPath("~/uploadcv"), filename));
+                C.cv1 = Path.Combine(Server.MapPath("~/uploadcv"), filename);
 
                 using (Alumni_PortalEntities dc = new Alumni_PortalEntities())
                 {
@@ -263,9 +263,9 @@ namespace Alumni_Student_Portal.Controllers
                     try
                     {
 
-                        path = Path.Combine(Server.MapPath("~/UploadCV"), random + Path.GetFileName(file.FileName));
+                        path = Path.Combine(Server.MapPath("~/uploadcv"), random + Path.GetFileName(file.FileName));
                         file.SaveAs(path);
-                        path = "~/UploadCV" + random + Path.GetFileName(file.FileName);
+                        path = "~/uploadcv" + random + Path.GetFileName(file.FileName);
 
                         ViewBag.Message = "File uploaded successfully";
                     }
@@ -311,7 +311,7 @@ namespace Alumni_Student_Portal.Controllers
         public ActionResult Query(Complain C, HttpPostedFileBase file)
         {
             string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);//com   
-            C.com = (Path.Combine(Server.MapPath("~/Complain file"), fileName));//com
+            C.com = (Path.Combine(Server.MapPath("~/Complain"), fileName));//com
             string path = uploadfile(file);
             if (path.Equals("-1"))
             {
@@ -330,8 +330,8 @@ namespace Alumni_Student_Portal.Controllers
                 db.Complains.Add(u);//com
                 //db.SaveChanges();//com
                 string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                C.com = (Path.Combine(Server.MapPath("~/Complain file"), filename));
-                C.com = Path.Combine(Server.MapPath("~/Complain file"), filename);
+                C.com = (Path.Combine(Server.MapPath("~/Complain"), filename));
+                C.com = Path.Combine(Server.MapPath("~/Complain"), filename);
 
                 using (Alumni_PortalEntities dc = new Alumni_PortalEntities())
                 {
@@ -365,9 +365,9 @@ namespace Alumni_Student_Portal.Controllers
                     try
                     {
 
-                        path = Path.Combine(Server.MapPath("~/Complain file"), random + Path.GetFileName(file.FileName));
+                        path = Path.Combine(Server.MapPath("~/Complain"), random + Path.GetFileName(file.FileName));
                         file.SaveAs(path);
-                        path = "~/Conplain file" + random + Path.GetFileName(file.FileName);
+                        path = "~/Complain" + random + Path.GetFileName(file.FileName);
 
                         ViewBag.Message = "File uploaded successfully";
                     }
@@ -376,6 +376,7 @@ namespace Alumni_Student_Portal.Controllers
                         path = "-1";
                     }
                 }
+
                 else
                 {
 

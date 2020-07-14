@@ -20,9 +20,11 @@ namespace Alumni_Student_Portal.Models
         [Display(Name = "Enter Username :")]
         public string Ad_name { get; set; }
      
+        
         public string Ad_image { get; set; }
-        [Required(ErrorMessage = "Enter user name")]
-        [Display(Name = "Enter Username :")]
+        
+        [Required(ErrorMessage = "Enter Description")]
+        [Display(Name = "Enter Description :")]
         public string Ad_des { get; set; }
         public Nullable<int> pro_fk_Event_Category { get; set; }
         public Nullable<int> pro_fk_Alumni { get; set; }

@@ -4,53 +4,183 @@
     ViewBag.Title = "SubmitCV";
 }
 
-<h2>SubmitCV</h2>
+<head>
+    <title>
 
-@using (Html.BeginForm("SubmitCV", "Alumni", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.ValidationSummary(true)
-    @Html.AntiForgeryToken()
-    @* This AntiForgeryTokey is used for prevent CSRF Attack*@
-    <fieldset>
-        <legend>Carrer</legend>
-        @if (ViewBag.Message != null)
-        {
-            <span style="color:green">
-                @ViewBag.Message
-            </span>
+    </title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <style>
+        .footer {
+            background-color: #D1C4E9;
+            margin-top: 50px;
         }
-      
-        <div class="editor-label">
-            @Html.LabelFor(model => model.fullname)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.fullname)
-            @Html.ValidationMessageFor(model => model.fullname)
+    </style>
+
+</head>
+<body>
+    <section class="breadcrumb" style="padding-top:50px">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h4>Submit Cv</h4>
+
+
+                <h6>Submit Cv/ <a href="Home ">Home</a></h6>
+
+
+
+
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
+    </section>
+
+    @using (Html.BeginForm("SubmitCV", "Alumni", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.AntiForgeryToken()
+        @* This AntiForgeryTokey is used for prevent CSRF Attack*@
+
+        <div class="container">
+
+            <h2>Query Procedure</h2>
+            <div class="form-group">
+                <b>  @Html.LabelFor(m => m.fullname, new { @class = "col-md-2 control-label" }) </b>
+
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.fullname, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.fullname, "", new { @class = "error" })
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <b>   @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" }) </b>
+
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+
+                </div>
+
+            </div>
+
+            
+
+
+
+
+
+
+
+            <div class="form-group">
+                <b>     Select CV: </b>
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+
+                    <input type="file" name="file" id="file" class="form-control" required="required" />
+                    @Html.ValidationMessageFor(model => model.cv1)
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+
+            </div>
+
+
+            <div class="form-group">
+                <p style="color:red">@ViewBag.error</p>
+            </div>
+
+            <div>
+                @if (ViewBag.Message != null)
+                {
+                    <span style="color:green">
+                        @ViewBag.Message
+                    </span>
+                }
+            </div>
+
+
+
+
+
+
         </div>
 
-        <div class="editor-label">
-            Select CV
-        </div>
-        <div class="editor-field">
-            <input type="file" name="file" />
-            @Html.ValidationMessage("CustomError")
-        </div>
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+        <footer class="footer" style="margin-top:100px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 offset-1 col-sm-2">
+                        <h5>Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="./aboutus.html">About</a></li>
+                            <li><a href="#">Menu</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-7 col-sm-5">
+                        <h5>Our Address</h5>
+                        <address>
+                            <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
+                            <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+                            <i class="fa fa-envelope fa-lg"></i>:
+                            <a href="mailto:confusion@food.net">confusion@food.net</a>
+                        </address>
+                    </div>
+                    <div class="col-12 col-sm-4 align-self-center">
+                        <div class="text-center">
+                            <div class="text-center">
+                                <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+                                <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                                <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+                                <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+                                <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+                                <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <p>© Copyright 2018 Ristorante Con Fusion</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+    }
+</body>
+
+
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
