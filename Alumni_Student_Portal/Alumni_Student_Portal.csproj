@@ -571,6 +571,9 @@
     <Content Include="Views\Alumni\Home.cshtml" />
     <Content Include="Views\Alumni\About.cshtml" />
     <Content Include="Views\Alumni\Query.cshtml" />
+    <Content Include="Views\Admin\Ads.cshtml" />
+    <Content Include="Views\Admin\ViewAd.cshtml" />
+    <Content Include="Views\Admin\Del.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

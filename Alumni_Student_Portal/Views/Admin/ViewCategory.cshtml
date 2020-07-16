@@ -38,6 +38,7 @@
                     <div class="col-lg-4 col-md-4" style="height:200px;margin-top:100px">
                         <img src="@Url.Content(item.cat_image)" style=" height:100%;width:100% ;border-radius:50px 50px 50px 50px" />
                         <h4 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.cat_Name</h4>
+                        <h4 style="color:#808080; font-family:'Comic Sans MS';text-align:center"> @Html.ActionLink(@item.cat_Name, "Ads", new { id = @item.cat_id })</h4>
                         <div style="margin-left:160px">
                             @*@Html.ActionLink("Delete", "Delete", new { id = item.cat_id }, new { @class = "btn btn-danger btn-sm" })*@
                             @Html.ActionLink("Delete", "Delete", new { id = item.cat_id })

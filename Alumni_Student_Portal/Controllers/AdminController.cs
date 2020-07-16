@@ -253,5 +253,74 @@ namespace Alumni_Student_Portal.Controllers
         //    }
         //    base.Dispose(disposing);
         //}
-	}
+
+
+
+        public ActionResult Ads(int? id, int? page)
+        {
+            int pagesize = 9, pageindex = 1;
+            pageindex = page.HasValue ? Convert.ToInt32(page) : 1;
+            var list = db.Ad_Post.Where(x => x.pro_fk_Event_Category == id).OrderByDescending(x => x.Ad_id).ToList();
+            IPagedList<Ad_Post> stu = list.ToPagedList(pageindex, pagesize);
+
+
+            return View(stu);
+
+
+        }
+        public ActionResult ViewAd(int? id)
+        {
+            Adviewmodel ad = new Adviewmodel();
+            Ad_Post p = db.Ad_Post.Where(x => x.Ad_id == id).SingleOrDefault();
+            ad.Ad_id = p.Ad_id;
+            ad.Ad_name = p.Ad_name;
+            ad.Ad_image = p.Ad_image;
+            ad.Ad_des = p.Ad_des;
+            tbl_Event_Category cat = db.tbl_Event_Category.Where(x => x.cat_id == p.pro_fk_Event_Category).SingleOrDefault();
+            ad.cat_Name = cat.cat_Name;
+            //tbl_user u = db.tbl_user.Where(x => x.u_id == p.pro_fk_user).SingleOrDefault();
+            //ad.u_name = u.u_name;
+            //ad.cat_image = u.cat_image;
+            //ad.u_contact = u.u_contact;
+            //ad.pro_fk_user = u.u_id;
+
+
+
+
+            return View(ad);
+        }
+
+        public ActionResult Del(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
+            Ad_Post tbl_pro = db.Ad_Post.Find(id);
+            if (tbl_pro == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tbl_pro);
+        }
+
+        [HttpPost, ActionName("Del")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delconfirmed(int id)
+        {
+            Ad_Post tbl_pro = db.Ad_Post.Find(id);
+            db.Ad_Post.Remove(tbl_pro);
+            db.SaveChanges();
+            return RedirectToAction("ViewCategory");
+        }
+
+      
+
+
+
+      
+    
+    
+    }
 }
