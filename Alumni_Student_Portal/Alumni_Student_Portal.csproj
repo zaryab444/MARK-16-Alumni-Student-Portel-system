@@ -574,6 +574,8 @@
     <Content Include="Views\Admin\Ads.cshtml" />
     <Content Include="Views\Admin\ViewAd.cshtml" />
     <Content Include="Views\Admin\Del.cshtml" />
+    <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\Alumni\going.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

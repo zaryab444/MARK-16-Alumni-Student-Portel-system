@@ -34,7 +34,7 @@ namespace Alumni_Student_Portal.Controllers
 
         public ActionResult Registration()
         {
-            
+
 
             return View();
         }
@@ -53,11 +53,12 @@ namespace Alumni_Student_Portal.Controllers
             db.SaveChanges();
             return RedirectToAction("Login");
 
-           
-            
+
+
 
             //   return View();
         }
+
         public ActionResult Login()
         {
             return View();
@@ -127,13 +128,13 @@ namespace Alumni_Student_Portal.Controllers
         public ActionResult CreateAd()
         {
 
-            
-            
+
+
             if (Session["u_id"] == null)
             {
                 return RedirectToAction("Login");
             }
-            
+
             List<tbl_Event_Category> li = db.tbl_Event_Category.ToList();
             ViewBag.categorylist = new SelectList(li, "cat_id", "cat_name");
 
@@ -183,6 +184,8 @@ namespace Alumni_Student_Portal.Controllers
         }
         public ActionResult ViewAd(int? id)
         {
+         
+
             Adviewmodel ad = new Adviewmodel();
             Ad_Post p = db.Ad_Post.Where(x => x.Ad_id == id).SingleOrDefault();
             ad.Ad_id = p.Ad_id;
@@ -191,17 +194,35 @@ namespace Alumni_Student_Portal.Controllers
             ad.Ad_des = p.Ad_des;
             tbl_Event_Category cat = db.tbl_Event_Category.Where(x => x.cat_id == p.pro_fk_Event_Category).SingleOrDefault();
             ad.cat_Name = cat.cat_Name;
+
+          
+            
+            return View(ad);
+
+
             //tbl_user u = db.tbl_user.Where(x => x.u_id == p.pro_fk_user).SingleOrDefault();
             //ad.u_name = u.u_name;
             //ad.cat_image = u.cat_image;
             //ad.u_contact = u.u_contact;
             //ad.pro_fk_user = u.u_id;
+           }
+
+        [HttpPost]
+        public ActionResult ViewAd(going uvm)
+        {
+            going u = new going();
+            u.go_name = uvm.go_name;
+            u.go_email = uvm.go_email;
+            u.go_contact = uvm.go_contact;
+            u.pro_fk_Alumni = uvm.pro_fk_Alumni;
 
 
+            db.goings.Add(u);
+            db.SaveChanges();
+            return RedirectToAction("ViewAd");
+         }
 
-
-            return View(ad);
-        }
+        
         public ActionResult SubmitCV()
         {
             return View();
@@ -280,8 +301,8 @@ namespace Alumni_Student_Portal.Controllers
                     Response.Write("<script>alert('Only pdf formats are acceptable....'); </script>");
                 }
 
-            
-            
+
+
             }
 
             else
@@ -289,7 +310,7 @@ namespace Alumni_Student_Portal.Controllers
                 Response.Write("<script>alert('Please select a file'); </script>");
                 path = "-1";
             }
-          
+
 
 
 
@@ -307,7 +328,7 @@ namespace Alumni_Student_Portal.Controllers
         }
 
         [HttpPost]
-     //   [ValidateAntiForgeryToken]
+        //   [ValidateAntiForgeryToken]
         public ActionResult Query(Complain C, HttpPostedFileBase file)
         {
             string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);//com   
@@ -399,6 +420,33 @@ namespace Alumni_Student_Portal.Controllers
 
             return path;
         }
+
+
+
+        public ActionResult going()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult going(going uvm)
+        {
+
+            going u = new going();
+            u.go_name = uvm.go_name;
+            u.go_email = uvm.go_email;
+            u.go_contact = uvm.go_contact;
+            u.pro_fk_Alumni = uvm.pro_fk_Alumni;
+
+
+            db.goings.Add(u);
+            db.SaveChanges();
+            return RedirectToAction("going");
+
+
+            //return View();
+        }
+
 
     }
 }

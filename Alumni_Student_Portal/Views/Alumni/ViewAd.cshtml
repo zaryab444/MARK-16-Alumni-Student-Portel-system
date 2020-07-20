@@ -1,7 +1,13 @@
 ﻿@model Alumni_Student_Portal.Models.Adviewmodel
+
+
+
+
+
+
 @{
     ViewBag.Title = "ViewAd";
-     //Layout = "~/Views/Shared/_Layout.cshtml";
+     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
 <style>
@@ -9,64 +15,194 @@
         padding: 20px;
     }
 </style>
-<div class="row">
-    <div class="col-lg-12 col-md-12">
-        <img src="~/Content/img/14560020750060463280.png" class="img img-responsive" style="width:100%" />
-    </div>
-</div>
 
-<div class="row">
 
-    <div class="col-lg-2 col-md-2">
-        <img src="~/Content/img/adlisting2.gif" class="img img-responsive" style=" height:500px;" />
-    </div>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 
 
-    <div class="col-lg-8 col-md-8">
 
-        <div>
-            <h1>@Model.Ad_name <small>AD-ID:@Model.Ad_id</small></h1>
+<script src="js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<body style="background-color:lightgray">
+
+    <section class="breadcrumb" style="padding-top:50px">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h4>Sessions</h4>
+
+
+                <h6> Session Event</h6>
+
+
+
+
+            </div>
         </div>
 
-        <img src="@Url.Content(@Model.Ad_image)" style="width:800PX; height:450PX" />
+    </section>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
 
-        <div>
-            <h1>Description: </h1>
-            <p>@Model.Ad_des</p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-2 col-md-2">
+
         </div>
 
-        <table>
 
+
+        <div class="col-lg-8 col-md-8">
+
+            <div>
+                <h1>@Model.Ad_name <small>AD-ID:@Model.Ad_id</small></h1>
+            </div>
+
+            <img src="@Url.Content(@Model.Ad_image)" style="width:800PX; height:450PX" />
+
+            <div>
+                <h1>Description: </h1>
+                <p>@Model.Ad_des</p>
+            </div>
             
-            <tr> <td>Category: </td> <td>@Model.cat_Name </td> </tr>
-            @*<tr> <td>Posted by: </td> <td>@Model.u_name <img src="@Url.Content(@Model.cat_image)" style="width:40px; height:40px" /> </td>*@ </tr>
-            
-            <tr>
-                <td colspan="2">
-                    @if (Convert.ToInt32(Session["u_id"]) == Convert.ToInt32(Model.pro_fk_Alumni))
-                    {
-
-                        @Html.ActionLink("Close this Ad", "DeleteAd", new { @class = "btn btn-info", id = Model.Ad_id })
+            <table>
 
 
+                <tr> <td>Category: </td> <td>@Model.cat_Name </td> </tr>
+                @*<tr> <td>Posted by: </td> <td>@Model.u_name <img src="@Url.Content(@Model.cat_image)" style="width:40px; height:40px" /> </td>*@
 
-                    }
-                </td>
-            </tr>
+                <tr>
+                    <td colspan="2">
+                        @if (Convert.ToInt32(Session["u_id"]) == Convert.ToInt32(Model.pro_fk_Alumni))
+                        { 
 
-        </table>
+ 
+      @Html.ActionLink("Submit your response", "going", "Alumni", null, new { @class = "btn btn-primary btn-large" })
+             <!-- Button trigger modal -->
+      
+                        }
+                    </td>
+                </tr>
+
+            </table>
+            <div id="box" class="img-responsive">
+                @using (Html.BeginForm("ViewAd",
+                        "Alumni",
+                        FormMethod.Post))
+                {
+                    
+                    
+                    
+                    
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Submit your response
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div>
+            <div> <h1>Submit Response Please</h1></div>
 
 
 
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                    @Html.TextBoxFor(x => x.go_name, new { @class = "form-control", @placeholder = "fullname" })
+
+                </div>
+                <span style="color:red">   @Html.ValidationMessageFor(x => x.go_name) </span>
+
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                    @Html.TextBoxFor(x => x.go_email, new { @class = "form-control", @placeholder = "Email" })
+
+                </div>
+                <span style="color:red">   @Html.ValidationMessageFor(x => x.go_contact) </span>
+
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                     @Html.TextBoxFor(x => x.go_contact, new { @class = "form-control", @placeholder = "Phone" })
+
+                </div>
+                <span style="color:red">   @Html.ValidationMessageFor(x => x.go_contact) </span>
+
+            </div>
+
+
+
+
+
+
+
+         
+            <div class="form-group">
+                <p style="color:red">@ViewBag.error</p>
+            </div>
+
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <input type="submit" value="Save changes" class="btn btn-primary " />
+         
+      </div>
     </div>
-
-
-
-
-    <div class="col-lg-2 col-md-2">
-        <img src="~/Content/img/150_sleep1_600.gif" class="img img-responsive" style=" height:500px;" />
-    </div>
-
-
+  </div>
 </div>
+                    
+                    
+                    
+
+                }
+
+
+
+            </div>
+        
+
+
+
+        <div class="col-lg-2 col-md-2">
+
+        </div>
+
+
+    </div>
+</body>
+
+
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
