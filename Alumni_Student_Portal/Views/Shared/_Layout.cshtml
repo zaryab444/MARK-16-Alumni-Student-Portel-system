@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -14,55 +16,91 @@
 </head>
 
     <body> 
-        <!--start of navigation-->
-        <nav class="navbar navbar-expand-sm  navbar-dark fixed-top " style="background-color:#557A95">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark " style="background-color:#557A95">
+            <a class=" navbar-brand" href="Home">
+                Alumni Portal</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Brand/logo -->
-            <a class="navbar-brand" href="#">Alumni Portal</a>
-            <div class="collapse navbar-collapse" id="Navbar">
-                <!-- Links -->
-                <ul class="navbar-nav ml-sm-5 ">
-                    <li class="nav-item">
-                        <a class="nav-link" href="Home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Login">Login</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Home">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="About">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Registration">Registration</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Query">Query Procedure</a>
-                    </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="ContactUs">Contact Us</a>
+                        <a class="nav-link" href="Login">Loged IN</a>
+                    </li>   
+                    
+
+<li class="nav-item">
+                        <a class="nav-link" href="Registration">Sign up</a>
                     </li>
 
 
-                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact US</a>
+                    </li>
 
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
-                        <div class="dropdown-menu"style="background-color: #557A95">
-                            <a class="dropdown-item" href="Index">UpComing Events</a>
-                            <a class="dropdown-item" href="CreateAd">Ad Posting</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Index">Upcoming Events</a>
+                    </li>
+
+                    @*<li class="nav-item">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            Log in
+                        </button>
+                        </li>*@
+
+
+<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Service
+                        </a>
+                        <div class="dropdown-menu" id="Demo" aria-labelledby="navbarDropdown" style="background-color: #557A95">
                             <a class="dropdown-item" href="SubmitCV">Submit CV</a>
+                            <a class="dropdown-item" href="Query">Query Procedure</a>
+                            <a class="dropdown-item" href="CreateAd">Event or Job Posting</a>
+
                         </div>
                     </li>
-
+                    
                 </ul>
-            
-                </div>
-
-</nav> <!-- End of navigation-->
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
         
+        
+        @*<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        
+
+
         <!--For space break in under navigation ---> 
         @*<div class="container body-content">
             <br />
@@ -85,7 +123,7 @@
         
         <script>
     
-
+            
     </script>
         
 </body>

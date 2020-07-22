@@ -245,9 +245,13 @@
     <Content Include="Content\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="Content\images\abstract-art-artistic-background-1103970.jpg" />
     <Content Include="Content\images\bg-01.jpg" />
+    <Content Include="Content\images\Bonding.jpg" />
+    <Content Include="Content\images\development.jpg" />
+    <Content Include="Content\images\Goal.jpg" />
     <Content Include="Content\images\icons\favicon.ico" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\why-us.jpg" />
+    <Content Include="Content\images\world.jpg" />
     <Content Include="Content\img\about.jpg" />
     <Content Include="Content\img\apple-touch-icon.png" />
     <Content Include="Content\img\blog-author.jpg" />
