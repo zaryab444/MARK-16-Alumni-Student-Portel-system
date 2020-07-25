@@ -57,7 +57,7 @@
             <div class="input-group">
                 <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
                 @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                @Html.TextBoxFor(x => x.Alumni_email, new { @class = "form-control", @placeholder = "Email" })
+                @Html.TextBoxFor(x => x.Alumni_email, new { @class = "form-control", @placeholder = "Email"  })
 
             </div>
             <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_email) </span>
