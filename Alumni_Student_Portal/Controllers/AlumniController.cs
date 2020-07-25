@@ -22,6 +22,7 @@ namespace Alumni_Student_Portal.Controllers
         {
             return View();
         }
+        
         public ActionResult Index(int? page)
         {
             int pagesize = 9, pageindex = 1;

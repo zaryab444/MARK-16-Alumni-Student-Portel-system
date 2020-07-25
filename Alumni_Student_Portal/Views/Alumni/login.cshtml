@@ -4,17 +4,21 @@
     ViewBag.Title = "login";
 }
 <head>
-
+    <title></title>
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css">
     <style>
         .insidebox {
-            border: 1px solid black;
+            /*border: 1px solid black;*/
+            /*border-style: solid;
+            border-color: white;*/
             margin: 10% auto 10% auto;
             max-width: 500px;
             min-width: 200px;
             padding-left: 60px;
             padding-right: 60px;
-            border-radius: 10px;
-            background-color: whitesmoke;
+            border-radius: 5px;
+            height: 300px;
+            border: 10px solid gray;
         }
 
         div h1 {
@@ -25,20 +29,31 @@
             text-align: center;
             font-size: 14px;
         }
+
+        .footer {
+            background-color: #D1C4E9;
+            margin: 0px auto;
+            padding: 20px 0px;
+        }
+
+        #input {
+            
+        }
     </style>
 </head>
-<body style="background-image:url('../Content/images/abstract-art-artistic-background-1103970.jpg')">
+@*<body style="background-image:url('../Content/images/abstract-art-artistic-background-1103970.jpg')"*@
+<body>
     <div id="main-div" >
         <div id="box">
             @using (@Html.BeginForm())
 {
-    <div class="insidebox" style="background-color:lightgray">
-        <div> <h1>Log In</h1></div>
+    <div class="insidebox">
+        <div> <h1>LOGIN</h1></div>
 
 
 
 
-        <div class="form-group">
+        <div class="form-group" id="input">
             <div class="input-group">
                 <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
                 @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
@@ -63,7 +78,7 @@
 
         <div class="form-group">
             @*<asp:Button ID="Button1" runat="server" Text="Log In" class="form-control  btn-success" OnClick="Button1_Click" OnClientClick="retrun(passwordmatchfunc())" />*@
-            <input type="submit" value="Login" class="btn btn-success btn-block" />
+            <input type="submit" value="Login" class="btn btn-primary " />
 
         </div>
 
@@ -79,6 +94,51 @@
         </div>
 
     </div>
+
+    <footer class="footer" style="margin-top:100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="./aboutus.html">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                        <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
+                        <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+                        <i class="fa fa-envelope fa-lg"></i>:
+                        <a href="mailto:confusion@food.net">confusion@food.net</a>
+                    </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <div class="text-center">
+                            <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+                            <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                            <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+                            <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+                            <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+                            <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <p>© Copyright 2018 Ristorante Con Fusion</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
 
 </body>
 

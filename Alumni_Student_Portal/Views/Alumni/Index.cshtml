@@ -3,6 +3,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -22,7 +23,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>View  Category</title>
     <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css">
-   
+
 
 </head>
 <body style="background-color:lightgray">
@@ -82,14 +83,14 @@
 
 
     </div>
-        <div id="container" style="margin-left: 20px">
-            <p></p>
-            <p></p>
-            <div class="pagination" style="margin-left: 400px">
-                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
-                of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-            </div>
+    <div id="container" style="margin-left: 20px">
+        <p></p>
+        <p></p>
+        <div class="pagination" style="margin-left: 400px">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
         </div>
+    </div>
     <footer class="footer" style="margin-top:100px;">
         <div class="container">
             <div class="row">
@@ -137,7 +138,3 @@
 
 </body>
 </html>
-
-
-
-

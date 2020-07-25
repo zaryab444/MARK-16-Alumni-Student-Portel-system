@@ -7,25 +7,7 @@
 
 
 <style>
-    .insidebox {
-        border: 1px solid black;
-        margin: 10% auto 10% auto;
-        max-width: 500px;
-        min-width: 200px;
-        padding-left: 60px;
-        padding-right: 60px;
-        border-radius: 10px;
-        background-color: whitesmoke;
-    }
-
-    div h1 {
-        text-align: center;
-    }
-
-    p#para {
-        text-align: center;
-        font-size: 14px;
-    }
+    
 </style>
 
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
@@ -43,77 +25,55 @@
                         "Alumni",
                         FormMethod.Post))
             {
-                <div class="insidebox" style="background-color:lightgray">
-                    <div> <h1>User SignUp</h1></div>
+                <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-26">
+						Welcome
+					</span>
+					<span class="login100-form-title p-b-48">
+						<i class="zmdi zmdi-font"></i>
+					</span>
 
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
 
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
 
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Login
+							</button>
+						</div>
+					</div>
 
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                            @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                            @Html.TextBoxFor(x => x.go_name, new { @class = "form-control", @placeholder = "fullname" })
+					<div class="text-center p-t-115">
+						<span class="txt1">
+							Don’t have an account?
+						</span>
 
-                        </div>
-                        <span style="color:red">   @Html.ValidationMessageFor(x => x.go_name) </span>
+						<a class="txt2" href="#">
+							Sign Up
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
 
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                            @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                            @Html.TextBoxFor(x => x.go_email, new { @class = "form-control", @placeholder = "Email" })
-
-                        </div>
-                        <span style="color:red">   @Html.ValidationMessageFor(x => x.go_contact) </span>
-
-                    </div>
-
-                  
-
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                            @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                            @Html.TextBoxFor(x => x.go_contact, new { @class = "form-control", @placeholder = "Phone" })
-
-                        </div>
-                        <span style="color:red">   @Html.ValidationMessageFor(x => x.go_contact) </span>
-
-                    </div>
-
-                    
-
-                    
-                    @*<div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-
-                                <input type="file" name="imgfile" id="imgfile" class="form-control" required="required" />
-
-
-
-                            </div>
-
-
-                        </div>*@
-
-
-
-                    <div class="form-group">
-
-                        <input type="submit" value="Add" class="btn btn-success btn-block" />
-
-                    </div>
-
-                    <div class="form-group">
-                        <p style="color:red">@ViewBag.error</p>
-                    </div>
-
-
-
-                </div>
+	<div id="dropDownSelect1"></div>
 
             }
         </div>
