@@ -11,6 +11,7 @@ namespace Alumni_Student_Portal.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class tbl_Event_Category
     {
@@ -20,7 +21,9 @@ namespace Alumni_Student_Portal.Models
         }
     
         public int cat_id { get; set; }
+         [Required(ErrorMessage = "This Feild is required")]
         public string cat_Name { get; set; }
+         [Required(ErrorMessage = "This Feild is required")]
         public string cat_image { get; set; }
         public Nullable<int> cat_fk_admin { get; set; }
         public Nullable<int> cat_status { get; set; }

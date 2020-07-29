@@ -16,6 +16,10 @@ namespace Alumni_Student_Portal.Controllers
         //
         // GET: /Admin/
         Alumni_PortalEntities db = new Alumni_PortalEntities();
+        public ActionResult Home(){
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -29,7 +33,7 @@ namespace Alumni_Student_Portal.Controllers
             {
 
                 Session["ad_id"] = ad.admin_id.ToString();
-                return RedirectToAction("Event_Category");
+                return RedirectToAction("Home");
 
             }
             else
@@ -168,6 +172,10 @@ namespace Alumni_Student_Portal.Controllers
         }
         public ActionResult list()
         {
+            if (Session["ad_id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
             return View(db.tbl_Alumni.ToList());
         }
 
