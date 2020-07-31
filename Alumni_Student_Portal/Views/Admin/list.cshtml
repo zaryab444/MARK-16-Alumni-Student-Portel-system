@@ -55,9 +55,14 @@
                 @Html.DisplayFor(modelItem => item.Alumni_cmsid)
             </td>
             <td>
-                @Html.ActionLink("Update", "Edit", new { id = item.Alumni_id }) |
+                @*@Html.ActionLink("Update", "Edit", new { id = item.Alumni_id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Alumni_id }) |
-                @Html.ActionLink("Delete", "Deleted", new { id = item.Alumni_id })
+                @Html.ActionLink("Delete", "Deleted", new { id = item.Alumni_id })*@
+               
+               
+                @Html.ActionLink("Update", "Edit", new { id = item.Alumni_id  } ,new{ @class = "btn btn-info"}  )
+                @Html.ActionLink("Details", "Details", new { id = item.Alumni_id }, new { @class = "btn btn-info" }) 
+                @Html.ActionLink("Delete", "Deleted", new { id = item.Alumni_id }, new { @class = "btn btn-info" })
             </td>
         </tr>
     }

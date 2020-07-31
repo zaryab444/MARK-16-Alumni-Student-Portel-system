@@ -2,57 +2,9 @@
 @model  PagedList.IPagedList<Alumni_Student_Portal.Models.tbl_Event_Category>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
-
-
-<style>
-    .footer {
-        background-color: #D1C4E9;
-        margin-top: 50px;
-    }
-
-    /* Fixed sidenav, full height */
-    .sidenav {
-        height: 100%;
-        width: 200px;
-        position:fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color:lightblue;
-        overflow-x: hidden;
-        padding-top: 20px;
-    }
-
-        /* Style the sidenav links and the dropdown button */
-        .sidenav a, .dropdown-btn {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #818181;
-            display: block;
-            border: none;
-            background: none;
-            width: 100%;
-            text-align: left;
-            cursor: pointer;
-            outline: none;
-        }
-
-    .sidenav {
-        margin-left: 1150px;
-    }
-
-        /* On mouse-over */
-        .sidenav a:hover, .dropdown-btn:hover {
-            color: #f1f1f1;
-        }
-
-</style>
-
 
 <!DOCTYPE html>
 
@@ -60,9 +12,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>View  Category</title>
-    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css">
-
-
+    <link href="~/Content/paginition.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 </head>
 <body style="background-color:lightgray">
 
@@ -70,120 +22,64 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h4>Upcoming Events</h4>
+                <h4>View Categories</h4>
 
 
-                
+
 
 
 
 
             </div>
         </div>
-     </section>
-    <div class=".d-none .d-md-block .d-lg-none">
-        <div class="sidenav">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#clients">Alumni</a>
-            <a href="#contact">Contact</a>
-            <a href="#contact">Search</a>
-            <a href="#contact">Events</a>
-            <a href="#contact">Jobs</a>
-            <a href="#contact">Gallery</a>
-            <a href="#contact">Term and Conditions</a>
+    </section>
+
+
+    <div class="container" style="height:1150px; ">
+        <div class="row">
+
+
         </div>
-    </div>
-    <div style="height:1150px; ">
-        <!--height mention of page 1 to 11 -->
-
-
-        
-
-            <div class="row" style="margin-bottom:40px; margin-left:100px">
 
 
 
-                <div class="col-lg-8 col-md-8">
-                    <div class="row">
-                        @if (Model != null)
-                        {
-                            foreach (var item in Model)
-                            {
-                                <div class="col-lg-4 col-md-4" style="height:200px;margin-top:100px; ">
-
-                                    <img class="img img-responsive cimg" src="@Url.Content(item.cat_image)" style=" height:100%;width:100% ;border-radius:15px 15px 15px 15px" />
-                                    <h4 style="color:#808080; font-family:'Comic Sans MS';text-align:center"> @Html.ActionLink(@item.cat_Name, "Ads", new { id = @item.cat_id })</h4>
-
-                                </div>
-
-                            }
-                        }
+        <div class="row" style="margin-bottom:40px">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-4" style="height:200px;margin-top:100px">
+                        <img src="@Url.Content(item.cat_image)" style=" height:100%;width:100% ;border-radius:50px 50px 50px 50px" />
+                        <h4 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.cat_Name</h4>
+                        <h4 style="color:#808080; font-family:'Comic Sans MS';text-align:center"> @Html.ActionLink(@item.cat_Name, "Ads", new { id = @item.cat_id })</h4>
+                        
                     </div>
-                </div>
+
+                }
+            }
 
 
 
-            
+
+
+
+
 
 
         </div>
 
 
-
     </div>
+
     <div id="container" style="margin-left: 20px">
         <p></p>
         <p></p>
         <div class="pagination" style="margin-left: 400px">
             Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
-            of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("ViewCategory", new { page }))
         </div>
     </div>
-    <footer class="footer" style="margin-top:100px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-4 offset-1 col-sm-2">
-                    <h5>Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="./aboutus.html">About</a></li>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-7 col-sm-5">
-                    <h5>Our Address</h5>
-                    <address>
-                        <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
-                        <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
-                        <i class="fa fa-envelope fa-lg"></i>:
-                        <a href="mailto:confusion@food.net">confusion@food.net</a>
-                    </address>
-                </div>
-                <div class="col-12 col-sm-4 align-self-center">
-                    <div class="text-center">
-                        <div class="text-center">
-                            <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
-                            <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
-                            <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
-                            <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
-                            <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
-                            <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-auto">
-                    <p>© Copyright 2018 Ristorante Con Fusion</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
 
 </body>
 </html>
+

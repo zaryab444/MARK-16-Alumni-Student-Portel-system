@@ -38,9 +38,9 @@ namespace Alumni_Student_Portal.Models
         public string Alumni_email { get; set; }
 
 
-        [Display(Name = "Mobile Number:")]
-        [Required(ErrorMessage = "Mobile Number is required.")]
-        [RegularExpression(@"^([0-9]{11})$", ErrorMessage = "Invalid Mobile Number.")]
+        //[Display(Name = "Mobile Number:")]
+        //[Required(ErrorMessage = "Mobile Number is required.")]
+        //[RegularExpression(@"^([0-9]{11})$", ErrorMessage = "Invalid Mobile Number.")]
          public string Alumni_cellnum { get; set; }
         
         
