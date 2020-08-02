@@ -7,9 +7,19 @@
 
 <h2>Index</h2>
 
+@*<p>
+    <button style="color:white;" type="button" class="btn btn-success">
+        
+        @Html.ActionLink("Create New", "Create")
+    </button>
+
+
+</p>*@
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Record", "Create", "Admin", null, new { @class = "btn btn-success  " })
 </p>
+
+
 <table class="table">
     <tr>
         <th>

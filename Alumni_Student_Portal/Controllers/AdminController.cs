@@ -170,6 +170,32 @@ namespace Alumni_Student_Portal.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // GET: /Crud/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: /Crud/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Alumni_id,Alumni_fullname,Alumni_Enrolmentnum,Alumni_email,Alumni_cellnum,Alumni_department,Alumni_cmsid")] tbl_Alumni tbl_alumni)
+        {
+            if (ModelState.IsValid)
+            {
+                db.tbl_Alumni.Add(tbl_alumni);
+                db.SaveChanges();
+                return RedirectToAction("List");
+            }
+
+            return View(tbl_alumni);
+        }
+
+
+
         public ActionResult list()
         {
             if (Session["ad_id"] == null)
