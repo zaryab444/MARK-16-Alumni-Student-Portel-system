@@ -4,14 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="55b4eada564e4ff4b7d07576b73c5159" Name="Diagram1">
-        <EntityTypeShape EntityType="Alumni_PortalModel.Ad_Post" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+      <Diagram DiagramId="e3cb68a64ccf4e6fb2f2cc8e4063ddc7" Name="Diagram1">
+        <EntityTypeShape EntityType="Alumni_PortalModel.Ad_Post" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Alumni_PortalModel.Complain" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Alumni_PortalModel.CV" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Alumni_PortalModel.going" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Alumni_PortalModel.student" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Alumni_PortalModel.tbl_Admin" Width="1.5" PointX="1.5" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Alumni_PortalModel.tbl_Alumni" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Alumni_PortalModel.CV" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Alumni_PortalModel.going" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Alumni_PortalModel.student" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Alumni_PortalModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Alumni_PortalModel.tbl_Admin" Width="1.5" PointX="1.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Alumni_PortalModel.tbl_Alumni" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Alumni_PortalModel.tbl_Event_Category" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
         <AssociationConnector Association="Alumni_PortalModel.FK__Ad_Post__pro_fk___1B0907CE" ManuallyRouted="false" />
         <AssociationConnector Association="Alumni_PortalModel.FK__Ad_Post__pro_fk___1BFD2C07" ManuallyRouted="false" />

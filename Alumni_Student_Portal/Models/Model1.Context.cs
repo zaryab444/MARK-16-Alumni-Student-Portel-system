@@ -13,10 +13,10 @@ namespace Alumni_Student_Portal.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Alumni_PortalEntities : DbContext
+    public partial class Alumni_PortalEntities1 : DbContext
     {
-        public Alumni_PortalEntities()
-            : base("name=Alumni_PortalEntities")
+        public Alumni_PortalEntities1()
+            : base("name=Alumni_PortalEntities1")
         {
         }
     
@@ -30,6 +30,7 @@ namespace Alumni_Student_Portal.Models
         public virtual DbSet<CV> CVs { get; set; }
         public virtual DbSet<going> goings { get; set; }
         public virtual DbSet<student> students { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tbl_Admin> tbl_Admin { get; set; }
         public virtual DbSet<tbl_Alumni> tbl_Alumni { get; set; }
         public virtual DbSet<tbl_Event_Category> tbl_Event_Category { get; set; }

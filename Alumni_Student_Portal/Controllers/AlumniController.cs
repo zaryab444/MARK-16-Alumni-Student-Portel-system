@@ -17,7 +17,8 @@ namespace Alumni_Student_Portal.Controllers
     {
         //
         // GET: /Alumni/
-        Alumni_PortalEntities db = new Alumni_PortalEntities();
+       // Alumni_PortalEntities1 db = new Alumni_PortalEntities1();
+        Alumni_PortalEntities1 db = new Alumni_PortalEntities1();
         public ActionResult Home()
         {
             return View();
@@ -255,7 +256,7 @@ namespace Alumni_Student_Portal.Controllers
                 C.cv1 = (Path.Combine(Server.MapPath("~/uploadcv"), filename));
                 C.cv1 = Path.Combine(Server.MapPath("~/uploadcv"), filename);
 
-                using (Alumni_PortalEntities dc = new Alumni_PortalEntities())
+                using (Alumni_PortalEntities1 dc = new Alumni_PortalEntities1())
                 {
                     C.cv1 = filename;
                     dc.CVs.Add(C);
@@ -355,7 +356,7 @@ namespace Alumni_Student_Portal.Controllers
                 C.com = (Path.Combine(Server.MapPath("~/Complain"), filename));
                 C.com = Path.Combine(Server.MapPath("~/Complain"), filename);
 
-                using (Alumni_PortalEntities dc = new Alumni_PortalEntities())
+                using (Alumni_PortalEntities1 dc = new Alumni_PortalEntities1())
                 {
                     C.com = filename;
                     dc.Complains.Add(C);

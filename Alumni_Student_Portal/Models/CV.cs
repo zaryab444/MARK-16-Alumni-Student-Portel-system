@@ -11,24 +11,12 @@ namespace Alumni_Student_Portal.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class CV
     {
         public int Cid { get; set; }
-        [Required(ErrorMessage = "Please enter your first name!")]
         public string fullname { get; set; }
-
-        [Required(ErrorMessage = "This Email is required")]
-        [Display(Name = "Email :")]
-
-        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Please enter a valid e-mail adress")]
-          
         public string Email { get; set; }
-
-        [Required(ErrorMessage = "Please upload file")]
-        [Display(Name = "upload file :")]
         public string cv1 { get; set; }
         public Nullable<int> pro_fk_Student { get; set; }
         public Nullable<int> pro_fk_Alumni { get; set; }

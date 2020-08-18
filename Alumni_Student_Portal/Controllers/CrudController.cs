@@ -12,7 +12,7 @@ namespace Alumni_Student_Portal.Controllers
 {
     public class CrudController : Controller
     {
-        private Alumni_PortalEntities db = new Alumni_PortalEntities();
+        private Alumni_PortalEntities1 db = new Alumni_PortalEntities1();
 
         // GET: /Crud/
         public ActionResult Index()

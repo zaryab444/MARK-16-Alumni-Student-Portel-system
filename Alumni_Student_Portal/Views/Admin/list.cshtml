@@ -2,11 +2,26 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
-<h2>Index</h2>
+<i><h2>Alumni List</h2> </i>
+<section class="breadcrumb" style="padding-top:50px">
+    <div class="container">
 
+        <div class="d-flex justify-content-between align-items-center">
+            <h4>Information Data</h4>
+
+
+            <h6>Alumni Information/ <a href="Dashboard">Dashboard</a></h6>
+
+
+
+
+        </div>
+    </div>
+
+</section>
 @*<p>
     <button style="color:white;" type="button" class="btn btn-success">
         
@@ -23,22 +38,28 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Alumni_fullname)
+            @*@Html.DisplayNameFor(model => model.Alumni_fullname)*@
+            <b>Full Name</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Alumni_Enrolmentnum)
+            @*@Html.DisplayNameFor(model => model.Alumni_Enrolmentnum)*@
+            <b> Enrolment Number</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Alumni_email)
+            @*@Html.DisplayNameFor(model => model.Alumni_email)*@
+            <b>Email</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Alumni_cellnum)
+            @*@Html.DisplayNameFor(model => model.Alumni_cellnum)*@
+            <b>Cell Number</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Alumni_department)
+            @*@Html.DisplayNameFor(model => model.Alumni_department)*@
+            <b>Department </b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Alumni_cmsid)
+            @*@Html.DisplayNameFor(model => model.Alumni_cmsid)*@
+            <b>CMS ID</b>
         </th>
         <th></th>
     </tr>

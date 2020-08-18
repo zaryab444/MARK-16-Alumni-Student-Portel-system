@@ -23,9 +23,9 @@
     <Property Name="Emain" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="pro_fk_Student" Type="Int32" />
     <Property Name="pro_fk_Alumni" Type="Int32" />
+    <Property Name="com" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="student" Relationship="Self.FK__Complain__pro_fk__29572725" FromRole="Complain" ToRole="student" />
     <NavigationProperty Name="tbl_Alumni" Relationship="Self.FK__Complain__pro_fk__2A4B4B5E" FromRole="Complain" ToRole="tbl_Alumni" />
-    <Property Name="com" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="CV">
     <Key>
@@ -65,6 +65,16 @@
     <NavigationProperty Name="CVs" Relationship="Self.FK__CV__pro_fk_Stude__25869641" FromRole="student" ToRole="CV" />
     <NavigationProperty Name="goings" Relationship="Self.FK__going__pro_fk_St__21B6055D" FromRole="student" ToRole="going" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="tbl_Admin">
     <Key>
       <PropertyRef Name="admin_id" />
@@ -98,9 +108,9 @@
     <Property Name="cat_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="cat_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="cat_fk_admin" Type="Int32" />
+    <Property Name="cat_status" Type="Int32" />
     <NavigationProperty Name="Ad_Post" Relationship="Self.FK__Ad_Post__pro_fk___1B0907CE" FromRole="tbl_Event_Category" ToRole="Ad_Post" />
     <NavigationProperty Name="tbl_Admin" Relationship="Self.FK__tbl_Event__cat_f__145C0A3F" FromRole="tbl_Event_Category" ToRole="tbl_Admin" />
-    <Property Name="cat_status" Type="Int32" />
   </EntityType>
   <Association Name="FK__Ad_Post__pro_fk___1B0907CE">
     <End Role="tbl_Event_Category" Type="Self.tbl_Event_Category" Multiplicity="0..1" />
@@ -210,12 +220,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Alumni_PortalEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Alumni_PortalEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Ad_Post" EntityType="Self.Ad_Post" />
     <EntitySet Name="Complains" EntityType="Self.Complain" />
     <EntitySet Name="CVs" EntityType="Self.CV" />
     <EntitySet Name="goings" EntityType="Self.going" />
     <EntitySet Name="students" EntityType="Self.student" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" />
     <EntitySet Name="tbl_Alumni" EntityType="Self.tbl_Alumni" />
     <EntitySet Name="tbl_Event_Category" EntityType="Self.tbl_Event_Category" />

@@ -26,5 +26,12 @@ namespace Alumni_Student_Portal.Controllers
 
             return View();
         }
+
+        public ActionResult menu()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

@@ -54,6 +54,16 @@
     <Property Name="stu_rollnum" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="stu_password" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="tbl_Admin">
     <Key>
       <PropertyRef Name="admin_id" />
@@ -198,6 +208,7 @@
     <EntitySet Name="CV" EntityType="Self.CV" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="going" EntityType="Self.going" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Alumni" EntityType="Self.tbl_Alumni" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Event_Category" EntityType="Self.tbl_Event_Category" Schema="dbo" store:Type="Tables" />

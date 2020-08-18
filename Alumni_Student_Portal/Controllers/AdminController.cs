@@ -15,7 +15,12 @@ namespace Alumni_Student_Portal.Controllers
     {
         //
         // GET: /Admin/
-        Alumni_PortalEntities db = new Alumni_PortalEntities();
+        Alumni_PortalEntities1 db = new Alumni_PortalEntities1();
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+
         public ActionResult Home(){
             return View();
         }
@@ -33,7 +38,7 @@ namespace Alumni_Student_Portal.Controllers
             {
 
                 Session["ad_id"] = ad.admin_id.ToString();
-                return RedirectToAction("Home");
+                return RedirectToAction("Dashboard");
 
             }
             else

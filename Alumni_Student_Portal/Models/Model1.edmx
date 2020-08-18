@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Alumni_PortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Alumni_PortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Ad_Post">
           <Key>
             <PropertyRef Name="Ad_id" />
@@ -58,6 +58,16 @@
           <Property Name="stu_name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="stu_rollnum" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="stu_password" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="tbl_Admin">
           <Key>
@@ -203,6 +213,7 @@
           <EntitySet Name="CV" EntityType="Self.CV" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="going" EntityType="Self.going" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Alumni" EntityType="Self.tbl_Alumni" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Event_Category" EntityType="Self.tbl_Event_Category" Schema="dbo" store:Type="Tables" />
@@ -243,7 +254,8 @@
             <End Role="tbl_Event_Category" EntitySet="tbl_Event_Category" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Alumni_PortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -270,9 +282,9 @@
           <Property Name="Emain" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="pro_fk_Student" Type="Int32" />
           <Property Name="pro_fk_Alumni" Type="Int32" />
+          <Property Name="com" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="student" Relationship="Self.FK__Complain__pro_fk__29572725" FromRole="Complain" ToRole="student" />
           <NavigationProperty Name="tbl_Alumni" Relationship="Self.FK__Complain__pro_fk__2A4B4B5E" FromRole="Complain" ToRole="tbl_Alumni" />
-          <Property Name="com" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CV">
           <Key>
@@ -312,6 +324,16 @@
           <NavigationProperty Name="CVs" Relationship="Self.FK__CV__pro_fk_Stude__25869641" FromRole="student" ToRole="CV" />
           <NavigationProperty Name="goings" Relationship="Self.FK__going__pro_fk_St__21B6055D" FromRole="student" ToRole="going" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="tbl_Admin">
           <Key>
             <PropertyRef Name="admin_id" />
@@ -345,9 +367,9 @@
           <Property Name="cat_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cat_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cat_fk_admin" Type="Int32" />
+          <Property Name="cat_status" Type="Int32" />
           <NavigationProperty Name="Ad_Post" Relationship="Self.FK__Ad_Post__pro_fk___1B0907CE" FromRole="tbl_Event_Category" ToRole="Ad_Post" />
           <NavigationProperty Name="tbl_Admin" Relationship="Self.FK__tbl_Event__cat_f__145C0A3F" FromRole="tbl_Event_Category" ToRole="tbl_Admin" />
-          <Property Name="cat_status" Type="Int32" />
         </EntityType>
         <Association Name="FK__Ad_Post__pro_fk___1B0907CE">
           <End Role="tbl_Event_Category" Type="Self.tbl_Event_Category" Multiplicity="0..1" />
@@ -457,12 +479,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Alumni_PortalEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Alumni_PortalEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Ad_Post" EntityType="Self.Ad_Post" />
           <EntitySet Name="Complains" EntityType="Self.Complain" />
           <EntitySet Name="CVs" EntityType="Self.CV" />
           <EntitySet Name="goings" EntityType="Self.going" />
           <EntitySet Name="students" EntityType="Self.student" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" />
           <EntitySet Name="tbl_Alumni" EntityType="Self.tbl_Alumni" />
           <EntitySet Name="tbl_Event_Category" EntityType="Self.tbl_Event_Category" />
@@ -508,7 +531,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Alumni_PortalModelStoreContainer" CdmEntityContainer="Alumni_PortalEntities">
+        <EntityContainerMapping StorageEntityContainer="Alumni_PortalModelStoreContainer" CdmEntityContainer="Alumni_PortalEntities1">
           <EntitySetMapping Name="Ad_Post">
             <EntityTypeMapping TypeName="Alumni_PortalModel.Ad_Post">
               <MappingFragment StoreEntitySet="Ad_Post">
@@ -524,13 +547,13 @@
           <EntitySetMapping Name="Complains">
             <EntityTypeMapping TypeName="Alumni_PortalModel.Complain">
               <MappingFragment StoreEntitySet="Complain">
-                <ScalarProperty Name="com" ColumnName="com" />
                 <ScalarProperty Name="ComplainID" ColumnName="ComplainID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Discription" ColumnName="Discription" />
                 <ScalarProperty Name="Emain" ColumnName="Emain" />
                 <ScalarProperty Name="pro_fk_Student" ColumnName="pro_fk_Student" />
                 <ScalarProperty Name="pro_fk_Alumni" ColumnName="pro_fk_Alumni" />
+                <ScalarProperty Name="com" ColumnName="com" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -568,6 +591,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Alumni_PortalModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tbl_Admin">
             <EntityTypeMapping TypeName="Alumni_PortalModel.tbl_Admin">
               <MappingFragment StoreEntitySet="tbl_Admin">
@@ -593,11 +627,11 @@
           <EntitySetMapping Name="tbl_Event_Category">
             <EntityTypeMapping TypeName="Alumni_PortalModel.tbl_Event_Category">
               <MappingFragment StoreEntitySet="tbl_Event_Category">
-                <ScalarProperty Name="cat_status" ColumnName="cat_status" />
                 <ScalarProperty Name="cat_id" ColumnName="cat_id" />
                 <ScalarProperty Name="cat_Name" ColumnName="cat_Name" />
                 <ScalarProperty Name="cat_image" ColumnName="cat_image" />
                 <ScalarProperty Name="cat_fk_admin" ColumnName="cat_fk_admin" />
+                <ScalarProperty Name="cat_status" ColumnName="cat_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
