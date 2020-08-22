@@ -11,6 +11,7 @@ namespace Alumni_Student_Portal.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class tbl_Alumni
     {
@@ -23,11 +24,19 @@ namespace Alumni_Student_Portal.Models
         }
     
         public int Alumni_id { get; set; }
+        [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$",ErrorMessage = "Please enter a valid Name" )]
+        [Required(ErrorMessage = "Please enter Full Name name.")]
         public string Alumni_fullname { get; set; }
+           [Required(ErrorMessage = "Please enter Enrollment Number Number name.")]
         public string Alumni_Enrolmentnum { get; set; }
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
+       
         public string Alumni_email { get; set; }
+        [Required(ErrorMessage = "Please enter Cell Number name.")]
         public string Alumni_cellnum { get; set; }
+        [Required(ErrorMessage = "Please enter department name.")]
         public string Alumni_department { get; set; }
+        [Required(ErrorMessage = "Please enter CMS ID.")]
         public string Alumni_cmsid { get; set; }
     
         public virtual ICollection<Ad_Post> Ad_Post { get; set; }

@@ -65,6 +65,7 @@ namespace Alumni_Student_Portal.Controllers
             if (path.Equals("-1"))
             {
                 ViewBag.error = "Image could not be uploaded....";
+               
             }
             else
             {
@@ -77,6 +78,7 @@ namespace Alumni_Student_Portal.Controllers
                 db.SaveChanges();
                 return RedirectToAction("ViewCategory");
             }
+                      
 
             return View();
         }
