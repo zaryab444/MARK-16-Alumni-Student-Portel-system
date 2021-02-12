@@ -52,7 +52,7 @@ namespace Alumni_Student_Portal.Controllers
             u.Alumni_cmsid = uvm.Alumni_cmsid;
 
             db.tbl_Alumni.Add(u);
-            db.SaveChanges();
+            db.SaveChanges(); //adding record in database
             return RedirectToAction("Login");
 
 

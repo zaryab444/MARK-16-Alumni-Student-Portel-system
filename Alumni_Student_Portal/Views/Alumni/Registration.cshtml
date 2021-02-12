@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "Registration";
 }
- <style >    
-     .insidebox {
+<style>
+    .insidebox {
         border: 10px solid gray;
         margin: 10% auto 10% auto;
         max-width: 500px;
@@ -29,16 +29,14 @@
         padding: 20px 0px;
     }
 
-    
-    #btn{
-        background-color:red;
-        color:white;
-
+    #btn {
+        background-color: red;
+        color: white;
     }
 
     #linkdn {
         background-color: #0e76a8;
-        color:white;
+        color: white;
     }
 
     #btn1 {
@@ -63,135 +61,129 @@
             @using (Html.BeginForm("Registration",
                         "Alumni",
                         FormMethod.Post))
-{
-    <div class="insidebox" style=" margin-top:50px">
-        <div> <h1>User SignUp</h1></div>
+            {
+                <div class="insidebox" style=" margin-top:50px">
+                    <div> <h1>User SignUp</h1></div>
 
 
 
 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                @Html.TextBoxFor(x => x.Alumni_fullname, new { @class = "form-control", @placeholder = "fullname" })
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                            @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                            @Html.TextBoxFor(x => x.Alumni_fullname, new { @class = "form-control", @placeholder = "fullname" })
 
-            </div>
-            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_fullname) </span>
+                        </div>
+                        <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_fullname) </span>
 
-        </div>
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                @Html.TextBoxFor(x => x.Alumni_email, new { @class = "form-control", @placeholder = "Email" })
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                            @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                            @Html.TextBoxFor(x => x.Alumni_email, new { @class = "form-control", @placeholder = "Email" })
 
-            </div>
-            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_email) </span>
+                        </div>
+                        <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_email) </span>
 
-        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                @Html.TextBoxFor(x => x.Alumni_Enrolmentnum, new { @class = "form-control", @placeholder = "Enrolment num" })
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                            @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                            @Html.TextBoxFor(x => x.Alumni_Enrolmentnum, new { @class = "form-control", @placeholder = "Enrolment num" })
 
-            </div>
-            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_Enrolmentnum) </span>
+                        </div>
+                        <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_Enrolmentnum) </span>
 
-        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                @Html.TextBoxFor(x => x.Alumni_cellnum, new { @class = "form-control", @placeholder = "Phone" })
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                            @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                            @Html.TextBoxFor(x => x.Alumni_cellnum, new { @class = "form-control", @placeholder = "Phone" })
 
-            </div>
-            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_cellnum) </span>
+                        </div>
+                        <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_cellnum) </span>
 
-        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                @Html.TextBoxFor(x => x.Alumni_department, new { @class = "form-control", @placeholder = "Department" })
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                            @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                            @Html.TextBoxFor(x => x.Alumni_department, new { @class = "form-control", @placeholder = "Department" })
 
-            </div>
-            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_department) </span>
+                        </div>
+                        <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_department) </span>
 
-        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
-                @Html.TextBoxFor(x => x.Alumni_cmsid, new { @class = "form-control", @placeholder = "CMSID" })
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                            @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                            @Html.TextBoxFor(x => x.Alumni_cmsid, new { @class = "form-control", @placeholder = "CMSID" })
 
-            </div>
-            <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_cmsid) </span>
+                        </div>
+                        <span style="color:red">   @Html.ValidationMessageFor(x => x.Alumni_cmsid) </span>
 
-        </div>
-        @*<div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                    </div>
+                    @*<div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                <input type="file" name="imgfile" id="imgfile" class="form-control" required="required" />
+                            </div>
+                        </div>*@
 
-                    <input type="file" name="imgfile" id="imgfile" class="form-control" required="required" />
+
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+
+                    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                    <div class="form-group">
+
+                        <input type="submit" value="Add" class="btn btn-primary btn-block" />
+
+                        <center><b>OR</b></center>
+
+
+                    </div>
+
+
+                    @*<div class="col">
+                            <a href="#" class="fb btn" style="color:purple" >
+                                <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                            </a>
+                            <a href="#" class="twitter btn">
+                                <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                            </a>
+                            <a href="#" class="google btn">
+                                <i class="fa fa-google fa-fw">
+                                </i> Login with Google+
+                            </a>
+                        </div>*@
+
+                    <button type="button" class="btn btn-gplus" id="btn"><i class="fab fa-google-plus-g pr-1"></i> Google +</button>
+
+                    <button type="button" class="btn btn-li" id="linkdn"><i class="fab fa-linkedin-in pr-1"></i> Linkedin</button>
+
+                    <button type="button" class="btn btn-fb" id="btn1"><i class="fab fa-facebook-f pr-1"></i> Facebook</button>
+
+                    <div class="form-group">
+                        <p style="color:red">@ViewBag.error</p>
+                    </div>
 
 
 
                 </div>
 
-
-            </div>*@
-
-
-        <label>
-            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-        </label>
-
-        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-        <div class="form-group">
-
-            <input type="submit" value="Add" class="btn btn-primary btn-block" />
-
-            <center><b>OR</b></center>
-
-
-        </div>
-
-
-        @*<div class="col">
-            <a href="#" class="fb btn" style="color:purple" >
-                <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-            </a>
-            <a href="#" class="twitter btn">
-                <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-            </a>
-            <a href="#" class="google btn">
-                <i class="fa fa-google fa-fw">
-                </i> Login with Google+
-            </a>
-        </div>*@
-
-         <button type="button" class="btn btn-gplus" id="btn" ><i class="fab fa-google-plus-g pr-1"></i> Google +</button>
-
-        <button type="button" class="btn btn-li" id="linkdn"><i class="fab fa-linkedin-in pr-1"></i> Linkedin</button>
-
-        <button type="button" class="btn btn-fb" id="btn1"><i class="fab fa-facebook-f pr-1"></i> Facebook</button>
-
-        <div class="form-group">
-            <p style="color:red">@ViewBag.error</p>
-        </div>
-
-
-
-    </div>
-
-}
+            }
         </div>
 
     </div>
@@ -245,6 +237,6 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

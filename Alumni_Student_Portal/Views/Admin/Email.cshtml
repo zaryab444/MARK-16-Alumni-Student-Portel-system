@@ -1,0 +1,120 @@
+﻿@model Alumni_Student_Portal.Models.gmail
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>
+
+    </title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css">
+
+
+
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <style>
+        .footer {
+            background-color: #D1C4E9;
+            margin-top: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <section class="breadcrumb" style="padding-top:50px">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h4>Alumni Emailing</h4>
+
+
+                <h6>Submit Cv/ <a href="Home ">Home</a></h6>
+
+
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+    @using (Html.BeginForm("Email", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+    
+<div class="container">
+
+    <h2>CV Procedure</h2>
+
+    <div class="form-group">
+        <b>  @Html.LabelFor(m => m.To, new { @class = "col-md-2 control-label" }) </b>
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.To, new { @class = "form-control" })
+
+
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+
+        <b>  @Html.LabelFor(m => m.Subject, new { @class = "col-md-2 control-label" }) </b>
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+
+        <b>  @Html.LabelFor(m => m.Body, new { @class = "col-md-2 control-label" }) </b>
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Body, new { @class = "form-control", rows = "15", cols = "22" })
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="form-group">
+
+        <input type="submit" value="Send" class="btn btn-primary"style="width:200px;" />
+
+    </div>
+
+
+
+    <div>
+        <br />
+        <span style="color:darkgreen">@ViewBag.Message</span>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+    }
+
+</body>
+</html>

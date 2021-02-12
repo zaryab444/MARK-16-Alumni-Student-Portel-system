@@ -8,7 +8,10 @@ using System.Web.Mvc;
 using PagedList;
 using System.Net;
 using System.Data.Entity;
-
+using Alumni_Student_Portal.Models;
+using System.Net;
+using System.Net.Mail;
+using System.IO.Ports;
 namespace Alumni_Student_Portal.Controllers
 {
     public class AdminController : Controller
@@ -16,6 +19,10 @@ namespace Alumni_Student_Portal.Controllers
         //
         // GET: /Admin/
         Alumni_PortalEntities1 db = new Alumni_PortalEntities1();
+
+
+        SerialPort sp = new SerialPort();
+
         public ActionResult Dashboard()
         {
             return View();
@@ -356,12 +363,40 @@ namespace Alumni_Student_Portal.Controllers
             return RedirectToAction("ViewCategory");
         }
 
-      
+      //Get Email
+        public ActionResult Email()
+        {
+
+            if (Session["ad_id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Email(Alumni_Student_Portal.Models.gmail model)
+        {
+            MailMessage mm = new MailMessage("sohail.zaryab61@gmail.com", model.To);
+            mm.Subject = model.Subject;
+            mm.Body = model.Body;
+            mm.IsBodyHtml = false;
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
 
 
+            NetworkCredential nc = new NetworkCredential("sohail.zaryab61@gmail.com","zaryabashina");
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = nc;
+            smtp.Send(mm);
+            ViewBag.Message = "Mail has been sent sucessfully";
+            
 
-      
-    
-    
-    }
+
+            return View();
+        }
+            }
 }

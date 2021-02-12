@@ -50,10 +50,12 @@ E:\Alumni_Student_Portal\Alumni_Student_Portal\bin\Microsoft.Owin.Security.OAuth
 E:\Alumni_Student_Portal\Alumni_Student_Portal\bin\Microsoft.Owin.Security.Google.xml
 E:\Alumni_Student_Portal\Alumni_Student_Portal\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Alumni_Student_Portal\Alumni_Student_Portal\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\Alumni_Student_Portal\Alumni_Student_Portal\obj\Debug\Alumni_Student_Portal.csprojResolveAssemblyReference.cache
 E:\Alumni_Student_Portal\Alumni_Student_Portal\obj\Debug\Alumni_Student_Portal.dll
 E:\Alumni_Student_Portal\Alumni_Student_Portal\obj\Debug\Alumni_Student_Portal.pdb
 E:\Alumni_Student_Portal\Alumni_Student_Portal\bin\PagedList.dll
 E:\Alumni_Student_Portal\Alumni_Student_Portal\bin\PagedList.Mvc.dll
 E:\Alumni_Student_Portal\Alumni_Student_Portal\bin\PagedList.xml
 E:\Alumni_Student_Portal\Alumni_Student_Portal\bin\PagedList.Mvc.xml
+E:\Alumni_Student_Portal\Alumni_Student_Portal\obj\Debug\Alumni_Student_Portal.csprojAssemblyReference.cache
+E:\Alumni_Student_Portal\Alumni_Student_Portal\obj\Debug\Alumni_Student_Portal.csproj.CoreCompileInputs.cache
+E:\Alumni_Student_Portal\Alumni_Student_Portal\obj\Debug\Alumni_Student_Portal.csproj.CopyComplete
