@@ -22,6 +22,7 @@ namespace Alumni_Student_Portal.Controllers
 
 
         SerialPort sp = new SerialPort();
+        private bool x;
 
         public ActionResult Dashboard()
         {
@@ -210,14 +211,30 @@ namespace Alumni_Student_Portal.Controllers
 
 
 
-        public ActionResult list()
+        public ActionResult list(string option, string search)
         {
             if (Session["ad_id"] == null)
             {
                 return RedirectToAction("Login");
             }
-            return View(db.tbl_Alumni.ToList());
+            //if a user choose the radio button option as Subject  
+            if (option == "Alumni_email")
+            {
+                //Index action method will return a view with a student records based on what a user specify the value in textbox  
+                return View(db.tbl_Alumni.Where(x => x.Alumni_email == search || search == null).ToList());
+            }
+            else if (option == "Alumni_department")
+            {
+                return View(db.tbl_Alumni.Where(x => x.Alumni_department == search || search == null).ToList());
+            }
+            else
+            {
+                return View(db.tbl_Alumni.Where(x => x.Alumni_fullname.StartsWith(search) || search == null).ToList());
+            }
+
+            //return View(db.tbl_Alumni.ToList());
         }
+        
 
         // GET: /Crud/Details/5
         public ActionResult Details(int? id)

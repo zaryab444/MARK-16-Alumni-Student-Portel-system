@@ -1,101 +1,125 @@
 ﻿@model IEnumerable<Alumni_Student_Portal.Models.tbl_Alumni>
 
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
-
-<i><h2>Alumni List</h2> </i>
-<section class="breadcrumb" style="padding-top:50px">
-    <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-            <h4>Information Data</h4>
-
-
-            <h6>Alumni Information/ <a href="Dashboard">Dashboard</a></h6>
-
-
-
-
-        </div>
-    </div>
-
-</section>
-@*<p>
-    <button style="color:white;" type="button" class="btn btn-success">
+<style>
+    .text{
+        color:red;
         
-        @Html.ActionLink("Create New", "Create")
-    </button>
+    }
+</style>
+<i><h2>Alumni List</h2> </i>
+
+@using (Html.BeginForm("list", "Admin", FormMethod.Get))
+{
+    //the following are search options
+    <b> Search Option: </b>@Html.RadioButton("option", "Alumni_fullname") <text>Name</text> @Html.RadioButton("option", "Alumni_department")
+    <text > Department </text>
+    @Html.RadioButton("option", "Alumni_email")<text>Email</text> @Html.TextBox("search")
+    <input type="submit" name="submit" value="Search" />
 
 
-</p>*@
-<p>
-    @Html.ActionLink("Create New Record", "Create", "Admin", null, new { @class = "btn btn-success  " })
-</p>
 
-
-<table class="table">
-    <tr>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Alumni_fullname)*@
-            <b>Full Name</b>
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Alumni_Enrolmentnum)*@
-            <b> Enrolment Number</b>
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Alumni_email)*@
-            <b>Email</b>
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Alumni_cellnum)*@
-            <b>Cell Number</b>
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Alumni_department)*@
-            <b>Department </b>
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Alumni_cmsid)*@
-            <b>CMS ID</b>
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Alumni_fullname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Alumni_Enrolmentnum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Alumni_email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Alumni_cellnum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Alumni_department)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Alumni_cmsid)
-            </td>
-            <td>
-                @*@Html.ActionLink("Update", "Edit", new { id = item.Alumni_id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Alumni_id }) |
-                @Html.ActionLink("Delete", "Deleted", new { id = item.Alumni_id })*@
-               
-               
-                @Html.ActionLink("Update", "Edit", new { id = item.Alumni_id  } ,new{ @class = "btn btn-info"}  )
-                @Html.ActionLink("Details", "Details", new { id = item.Alumni_id }, new { @class = "btn btn-info" }) 
-                @Html.ActionLink("Delete", "Deleted", new { id = item.Alumni_id }, new { @class = "btn btn-info" })
-            </td>
+    if (Model.Count() == 0)
+    {    <tr>
+        <p style="color:red;"><td colspan="3" class="text"> Records not found </td></p>
         </tr>
     }
+   
+}
+    <section class="breadcrumb" style="padding-top:50px">
+        <div class="container">
 
-</table>
+            <div class="d-flex justify-content-between align-items-center">
+                <h4>Information Data</h4>
+
+
+                <h6>Alumni Information/ <a href="Dashboard">Dashboard</a></h6>
+
+
+
+
+            </div>
+        </div>
+
+    </section>
+    @*<p>
+            <button style="color:white;" type="button" class="btn btn-success">
+
+                @Html.ActionLink("Create New", "Create")
+            </button>
+
+
+        </p>*@
+    <p>
+        @Html.ActionLink("Create New Record", "Create", "Admin", null, new { @class = "btn btn-success  " })
+    </p>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Alumni_fullname)*@
+                <b>Full Name</b>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Alumni_Enrolmentnum)*@
+                <b> Enrolment Number</b>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Alumni_email)*@
+                <b>Email</b>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Alumni_cellnum)*@
+                <b>Cell Number</b>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Alumni_department)*@
+                <b>Department </b>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Alumni_cmsid)*@
+                <b>CMS ID</b>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumni_fullname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumni_Enrolmentnum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumni_email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumni_cellnum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumni_department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumni_cmsid)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Update", "Edit", new { id = item.Alumni_id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Alumni_id }) |
+                        @Html.ActionLink("Delete", "Deleted", new { id = item.Alumni_id })*@
+
+
+                    @Html.ActionLink("Update", "Edit", new { id = item.Alumni_id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Details", "Details", new { id = item.Alumni_id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "Deleted", new { id = item.Alumni_id }, new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+
+    </table>
